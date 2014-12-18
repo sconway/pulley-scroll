@@ -1,0 +1,8 @@
+@import "vars";
+@import "mixins";
+
+.piece.in-place{
+	opacity: 1;
+	@include transform(scale3d(1,1,1));
+}
+

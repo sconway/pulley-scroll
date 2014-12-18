@@ -1,0 +1,350 @@
+@import "vars";
+@import "mixins";
+
+/* Inspired by a design seen here: https://github.com/sergeylukin/css-jigsaw-puzzle-piece/blob/master/css/jigsaw-2.css */
+
+
+.piece {
+  background-color: $piece-color;
+  border-radius: 7%;
+  height: $piece-height;
+  opacity: 0;
+  position: absolute;
+  width: $piece-width;
+  @include transition(all 2s ease);
+  @include transform(scale3d(3,3,3));
+}
+.piece:before,
+.piece:after,
+.piece span,
+.piece span:before,
+.piece span:after { 
+  border-radius: 50%;
+  content: "";
+  height: $knob-height;
+  position: absolute;
+  width: $knob-width;
+}
+
+
+//-------- general classes for the center pieces---------
+//Left Knob
+.center-piece:before { 
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Top Knob 
+.center-piece:after { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+// Bottom hole
+.center-piece span {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color; 
+}
+//Right hole
+.center-piece span:before {
+  top: $right-hole-top;
+  left: $right-hole-left;
+  background-color: $background-color;
+}
+
+
+
+// --------- PIECE 1 ----------
+.piece1 {
+}
+// Right Hole 
+.piece1:after { 
+  background-color: $background-color;
+  top: $knob-height;
+  left: $bottom-hole;
+}
+// Bottom Hole
+.piece1:before {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+
+// --------- PIECE 2 ----------
+.piece2 {
+  top:0px;
+  left: $piece-width;
+}
+// Left Knob
+.piece2:before {
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Bottom Knob
+.piece2 span {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+//Right hole
+.piece2 span:before {
+  top: $right-hole-top;
+  left: $right-hole-left;
+  background-color: $background-color;
+}
+
+
+// --------- PIECE 3 ----------
+.piece3 {
+  top:0px;
+  left: $piece-width*2;
+}
+// Left knob
+.piece3:before {
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+//Right Hole
+.piece3:after {
+  background-color: $background-color;
+  top: $knob-height;
+  left: $bottom-hole;
+}
+// Bottom Knob
+.piece3 span {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+
+
+// --------- PIECE 4 ----------
+.piece4 {
+  right:0px;
+}
+// Left hole
+.piece4:before {
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// bottom hole
+.piece4:after {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+
+
+// --------- PIECE 5 ----------
+.piece5 {
+  top: $piece-height;
+}
+// Top knob 
+.piece5:before { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+// Bottom Hole
+.piece5 span {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+//Right hole
+.piece5 span:before {
+  top: $right-hole-top;
+  left: $right-hole-left;
+  background-color: $background-color;
+}
+
+
+// --------- PIECE 6 ----------
+.piece6 {
+  top: $piece-height;
+  left: $piece-width;
+}
+
+
+// --------- PIECE 7 ----------
+.piece7 {
+  top: $piece-height;
+  left: $piece-width*2;
+}
+
+
+// --------- PIECE 8 ----------
+.piece8 {
+  top: $piece-height;
+  left: $piece-width * 3;
+}
+//Left Knob
+.piece8:before { 
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Top knob 
+.piece8:after { 
+  background-color: #0284cf;
+  top: $left-knob;
+  left: $left-center;
+}
+// Bottom hole
+.piece8 span {
+  top: $bottom-hole;
+  left: $left-center;
+  border-radius: 50%;
+  background-color: $background-color;
+}
+
+
+// --------- PIECE 9 ----------
+.piece9 {
+  top: $piece-height*2;
+}
+// Top Knob 
+.piece9:after { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+
+// Bottom Knob
+.piece9 span {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+//Right hole
+.piece9 span:before {
+  top: $right-hole-top;
+  left: $right-hole-left;
+  background-color: $background-color;
+}
+
+// --------- PIECE 10 ----------
+.piece10 {
+  top: $piece-height * 2;
+  left: $piece-width;
+}
+
+
+// --------- PIECE 11 ----------
+.piece11 {
+  top: $piece-height * 2;
+  left: $piece-width * 2;
+}
+
+
+// --------- PIECE 12 ----------
+.piece12 {
+  top: $piece-height * 2;
+  left: $piece-width * 3;
+}
+//Left Knob
+.piece12:before { 
+  background-color: #0284cf;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Top knob 
+.piece12:after { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+// Bottom hole
+.piece12 span {
+  top: $bottom-hole;
+  left: $left-center;
+  background-color: $background-color;
+}
+
+// --------- PIECE 13 ----------
+.piece13 {
+  top: $piece-height * 3;
+}
+// right knob 
+.piece13:after { 
+  background-color: $background-color;
+  top: $knob-height;
+  left: $bottom-hole;
+}
+// Top Knob
+.piece13:before {
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+
+
+// --------- PIECE 14 ----------
+.piece14 {
+  left: $piece-width;
+  top: $piece-height * 3;
+}
+//Left Hole
+.piece14:before { 
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Top knob 
+.piece14:after { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+//Right hole
+.piece14 span:before {
+  background-color: $background-color;
+  top: $knob-height;
+  left: $bottom-hole;
+}
+
+// --------- PIECE 15 ----------
+.piece15 {
+  top: $piece-height * 3;
+  left: $piece-width * 2;
+}
+//Left Knob
+.piece15:before { 
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Top Knob
+.piece15:after { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
+// Right Hole
+.piece15 span:before {
+  top: $knob-width;
+  left: $bottom-hole;
+  background-color: $background-color;
+}
+
+// --------- PIECE 16 ----------
+.piece16 {
+  top: $piece-height * 3;
+  left: $piece-width * 3;
+}
+//Left Knob
+.piece16:before { 
+  background-color: $piece-color;
+  top: $knob-height;
+  left: $left-knob;
+}
+// Top knob 
+.piece16:after { 
+  background-color: $piece-color;
+  top: $left-knob;
+  left: $left-center;
+}
