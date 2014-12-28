@@ -2,12 +2,13 @@
 
 $piece-width: 150px;
 $piece-height: 150px;
-$piece-color: #0302CF;
+$piece-color: "../images/bg-dark.jpg";
 $background-color: #fff;
 
 $container-width: $piece-width * 4;
 $container-height: $piece-width * 4;
 
+$border-radius: 10px;
 
 $knob-width: $piece-width/3.2;
 $knob-height: $piece-height/3.2;
@@ -17,7 +18,8 @@ $bottom-knob: $piece-height - $knob-offset;
 $bottom-hole: $piece-height - ($knob-height - $knob-offset);
 $right-hole-top:  ($bottom-hole - $knob-width) * -1;
 
-
 $left-center: ($piece-width/2) - ($knob-width/2);
 $top-center: -($piece-width - ($knob-width + $knob-offset));
 $right-hole-left: $left-center + $knob-offset;
+
+$nav-text-color: #fff;

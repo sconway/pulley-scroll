@@ -1,6 +1,74 @@
-.piece.in-place {
-  opacity: 1;
-  -webkit-transform: scale3d(1, 1, 1);
-  -moz-transform: scale3d(1, 1, 1);
-  -ms-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1); }
+.in-place {
+  opacity: 1; }
+  .in-place.piece {
+    -webkit-transform: scale3d(1, 1, 1);
+    -moz-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+
+@media (min-width: 768px) {
+  .puzzle-container {
+    width: 600px;
+    height: 600px; }
+
+  .piece {
+    display: block; }
+
+  .home-nav {
+    font-size: 64px; }
+
+  .piece2 {
+    top: 0px;
+    left: 150px; }
+
+  .piece3 {
+    top: 0px;
+    left: 300px; }
+
+  .piece4 {
+    right: 0px; }
+
+  .piece5 {
+    top: 150px; }
+
+  .piece6 {
+    top: 150px;
+    left: 150px; }
+
+  .piece7 {
+    top: 150px;
+    left: 300px; }
+
+  .piece8 {
+    top: 150px;
+    left: 450px; }
+
+  .piece9 {
+    top: 300px; }
+
+  .piece10 {
+    top: 300px;
+    left: 150px; }
+
+  .piece11 {
+    top: 300px;
+    left: 300px; }
+
+  .piece12 {
+    top: 300px;
+    left: 450px; }
+
+  .piece13 {
+    top: 450px; }
+
+  .piece14 {
+    left: 150px;
+    top: 450px; }
+
+  .piece15 {
+    top: 450px;
+    left: 300px; }
+
+  .piece16 {
+    top: 450px;
+    left: 450px; } }

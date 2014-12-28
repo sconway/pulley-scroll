@@ -1,6 +1,8 @@
+/* Inspired by a design seen here: https://github.com/sergeylukin/css-jigsaw-puzzle-piece/blob/master/css/jigsaw-2.css */
 .piece {
-  background-color: #0284cf;
-  border-radius: 7%;
+  background: url("../images/bg-dark.jpg");
+  border-radius: 10px;
+  display: none;
   height: 150px;
   opacity: 0;
   position: absolute;
@@ -26,239 +28,90 @@
   position: absolute;
   width: 46.875px; }
 
-.center-piece:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.center-piece:after {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.center-piece span {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.center-piece span:before {
+.right-hole:after {
   top: -67.96875px;
   left: 63.28125px;
   background-color: white; }
 
-.piece1:after {
+.right-hole2 {
   background-color: white;
   top: 46.875px;
   left: 114.84375px; }
 
-.piece1:before {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.piece2 {
-  top: 0px;
-  left: 150px; }
-
-.piece2:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.piece2 span {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.piece2 span:before {
-  top: -67.96875px;
-  left: 63.28125px;
-  background-color: white; }
-
-.piece3 {
-  top: 0px;
-  left: 300px; }
-
-.piece3:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.piece3:after {
-  background-color: white;
+.right-knob:after {
+  background: url(../images/bg-dark.jpg);
   top: 46.875px;
   left: 114.84375px; }
 
-.piece3 span {
+.bottom-hole {
   top: 114.84375px;
   left: 51.5625px;
   background-color: white; }
 
-.piece4 {
-  right: 0px; }
-
-.piece4:before {
-  background-color: #0284cf;
+.left-knob:before {
+  background: url(../images/bg-dark.jpg);
   top: 46.875px;
   left: -35.15625px; }
 
-.piece4:after {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.piece5 {
-  top: 150px; }
-
-.piece5:before {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.piece5 span {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.piece5 span:before {
-  top: -67.96875px;
-  left: 63.28125px;
-  background-color: white; }
-
-.piece6 {
-  top: 150px;
-  left: 150px; }
-
-.piece7 {
-  top: 150px;
-  left: 300px; }
-
-.piece8 {
-  top: 150px;
-  left: 450px; }
-
-.piece8:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.piece8:after {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.piece8 span {
-  top: 114.84375px;
-  left: 51.5625px;
-  border-radius: 50%;
-  background-color: white; }
-
-.piece9 {
-  top: 300px; }
-
-.piece9:after {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.piece9 span {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.piece9 span:before {
-  top: -67.96875px;
-  left: 63.28125px;
-  background-color: white; }
-
-.piece10 {
-  top: 300px;
-  left: 150px; }
-
-.piece11 {
-  top: 300px;
-  left: 300px; }
-
-.piece12 {
-  top: 300px;
-  left: 450px; }
-
-.piece12:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.piece12:after {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.piece12 span {
-  top: 114.84375px;
-  left: 51.5625px;
-  background-color: white; }
-
-.piece13 {
-  top: 450px; }
-
-.piece13:after {
+.left-hole:before {
   background-color: white;
   top: 46.875px;
-  left: 114.84375px; }
-
-.piece13:before {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.piece14 {
-  left: 150px;
-  top: 450px; }
-
-.piece14:before {
-  background-color: #0284cf;
-  top: 46.875px;
   left: -35.15625px; }
 
-.piece14:after {
-  background-color: #0284cf;
+.bottom-knob {
+  top: 114.84375px;
+  left: 51.5625px;
+  background: url(../images/bg-dark.jpg); }
+
+.top-knob:after {
+  background: url(../images/bg-dark.jpg);
   top: -35.15625px;
   left: 51.5625px; }
 
-.piece14 span:before {
-  background-color: white;
-  top: 46.875px;
-  left: 114.84375px; }
+.overlay {
+  background: url("../images/bg-dark.jpg");
+  border-radius: 10px;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10; }
 
-.piece15 {
-  top: 450px;
-  left: 300px; }
-
-.piece15:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.piece15:after {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
-
-.piece15 span:before {
-  top: 46.875px;
-  left: 114.84375px;
-  background-color: white; }
-
-.piece16 {
-  top: 450px;
-  left: 450px; }
-
-.piece16:before {
-  background-color: #0284cf;
-  top: 46.875px;
-  left: -35.15625px; }
-
-.piece16:after {
-  background-color: #0284cf;
-  top: -35.15625px;
-  left: 51.5625px; }
+.home-nav {
+  width: 80%;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  font-family: 'Hammersmith One', sans-serif;
+  color: white;
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  transition: all 2s ease; }
+  .home-nav li {
+    padding: 20px 0px;
+    position: relative; }
+    .home-nav li:before, .home-nav li:last-child:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 120%;
+      height: 5px;
+      left: -10%;
+      background: -webkit-radial-gradient(center, cover, rgba(255, 255, 255, 0.5) 5%, rgba(255, 255, 255, 0) 70%); }
+    .home-nav li:before {
+      top: -2px; }
+    .home-nav li:last-child:after {
+      bottom: -2px; }
+    .home-nav li:hover {
+      cursor: pointer;
+      color: #000; }

@@ -12,9 +12,9 @@ body {
 
 .puzzle-container { 
 	left:50%;
-	transform: translateX(-50%);
+	top: 50%;
+	transform: translate(-50%, -50%);
 	position: relative;
-    border: 1px solid black;
-	height: $container-height; 
-	width: $container-width;
+	height: $piece-height * 2; 
+	width: $piece-width * 2;
 }

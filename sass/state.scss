@@ -1,8 +1,103 @@
 @import "vars";
 @import "mixins";
 
-.piece.in-place{
+.in-place { 
 	opacity: 1;
-	@include transform(scale3d(1,1,1));
+
+  &.piece {
+	  @include transform(scale3d(1,1,1));
+  }
 }
 
+
+
+@media (min-width: 768px) {
+
+.puzzle-container { 
+	width: $piece-width * 4;
+	height: $piece-height * 4; 
+}	
+
+.piece { 
+	display: block;
+}
+
+.home-nav {
+  font-size: 64px;
+}
+
+// --------- PIECE 1 ----------
+.piece1 {
+}
+// --------- PIECE 2 ----------
+.piece2 {
+  top:0px;
+  left: $piece-width;
+}
+// --------- PIECE 3 ----------
+.piece3 {
+  top:0px;
+  left: $piece-width*2;
+}
+// --------- PIECE 4 ----------
+.piece4 {
+  right:0px;
+}
+// --------- PIECE 5 ----------
+.piece5 {
+  top: $piece-height;
+}
+// --------- PIECE 6 ----------
+.piece6 {
+  top: $piece-height;
+  left: $piece-width;
+}
+// --------- PIECE 7 ----------
+.piece7 {
+  top: $piece-height;
+  left: $piece-width*2;
+}
+// --------- PIECE 8 ----------
+.piece8 {
+  top: $piece-height;
+  left: $piece-width * 3;
+}
+// --------- PIECE 9 ----------
+.piece9 {
+  top: $piece-height*2;
+}
+// --------- PIECE 10 ----------
+.piece10 {
+  top: $piece-height * 2;
+  left: $piece-width;
+}
+// --------- PIECE 11 ----------
+.piece11 {
+  top: $piece-height * 2;
+  left: $piece-width * 2;
+}
+// --------- PIECE 12 ----------
+.piece12 {
+  top: $piece-height * 2;
+  left: $piece-width * 3;
+}
+// --------- PIECE 13 ----------
+.piece13 {
+  top: $piece-height * 3;
+}
+// --------- PIECE 14 ----------
+.piece14 {
+  left: $piece-width;
+  top: $piece-height * 3;
+}
+// --------- PIECE 15 ----------
+.piece15 {
+  top: $piece-height * 3;
+  left: $piece-width * 2;
+}
+// --------- PIECE 16 ----------
+.piece16 {
+  top: $piece-height * 3;
+  left: $piece-width * 3;
+}  
+}
