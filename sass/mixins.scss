@@ -12,3 +12,19 @@
   -o-transition: $args;
   transition: $args;
 }
+
+@mixin perspective($args) {
+  -webkit-perspective: $args;
+  -moz-perspective: $args;
+  -ms-perspective: $args;
+  -o-perspective: $args;
+  perspective: $args;
+}
+
+@mixin transform-style($args) {
+  -webkit-transform-style: $args;
+  -moz-transform-style: $args;
+  -ms-transform-style: $args;
+  -o-transform-style: $args;
+  transform-style: $args;
+}

@@ -13,3 +13,18 @@ body {
   position: relative;
   height: 300px;
   width: 300px; }
+
+.portfolio {
+  background-image: url("../images/bg-dark.jpg"); }
+
+.bg-green {
+  background-color: lime; }
+
+.bg-blue {
+  background-color: blue; }
+
+.bg-red {
+  background-color: red; }
+
+.bg-yellow {
+  background-color: yellow; }

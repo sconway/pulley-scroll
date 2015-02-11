@@ -18,3 +18,21 @@ body {
 	height: $piece-height * 2; 
 	width: $piece-width * 2;
 }
+
+.portfolio {
+	background-image: url("../images/bg-dark.jpg");
+}
+
+.bg-green {
+	background-color: $bg-green;
+}
+.bg-blue {
+	background-color: $bg-blue;
+}.bg-red {
+	background-color: $bg-red;
+}.bg-yellow {
+	background-color: $bg-yellow;
+}
+.bg-grey {
+	// background-color: #101010;
+}

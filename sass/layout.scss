@@ -1,7 +1,42 @@
 @import "vars";
 @import "mixins";
 
+.no-overflow {
+  overflow: hidden;
+}
 
+// this class is intended to center whatever element it is 
+// applied to, both horizontally and vertically 
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+// this class is intended to center whatever element it is 
+// applied to, both horizontally and vertically, 
+// relative to the viewport
+.fixed-center {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+
+// used to hide an element off screen, to the left
+.offscreen-left {
+  left: -500px;
+}
+// used to hide an element off screen, to the right
+.offscreen-right {
+  right: -1500px;
+}
+
+
+//  Defaults for the puzzle piece layout. The design is mobile first, 
+//  so only the four pieces for the mobile layout are defined here.
 .piece1 {
   display: block;
 }
@@ -20,3 +55,34 @@
   top: $piece-height;
   left: $piece-width;
 }
+
+
+// ---------------- Rectangular Prism -------------
+.front-face { 
+  left: -2px;
+  @include transform( rotateY(0deg) translateZ(50px) ); 
+}
+.back-face { 
+  left: 99px;
+  top: -100px;
+  @include transform( rotateX( 180deg ) translateZ(  50px ) ); 
+}
+.right-face { 
+  left: 960px;
+  @include transform( rotateY(-134deg) rotateZ(35deg) skew(35deg) ); 
+}
+.left-face { 
+  left: -38px;
+  @include transform( rotateY(-135deg) rotateZ(35deg) skew(35deg) ); 
+}
+.top-face { 
+  top: -119px;
+  @include transform( rotateX(45deg) translateX(48px) skew(-35deg) ); 
+}
+.bottom-face { 
+  top: 203px;
+  @include transform( rotateX(45deg) translateX(49px) skew(-35deg) ); 
+}
+
+
+

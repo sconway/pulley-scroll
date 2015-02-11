@@ -6,6 +6,12 @@
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
 
+.rotate-360 {
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  transform: rotateX(360deg); }
+
 @media (min-width: 768px) {
   .puzzle-container {
     width: 600px;
@@ -71,4 +77,24 @@
 
   .piece16 {
     top: 450px;
-    left: 450px; } }
+    left: 450px; }
+
+  .img-window,
+  .three-d-container {
+    height: 100vh; }
+
+  .site-description {
+    font-size: 20px;
+    width: 390px; }
+
+  .prism {
+    height: 400px; }
+    .prism .front-face,
+    .prism .back-face {
+      height: 525px; }
+    .prism .right-face,
+    .prism .left-face {
+      height: 430px;
+      top: -4px; }
+    .prism .bottom-face {
+      top: 403px; } }

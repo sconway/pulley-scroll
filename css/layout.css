@@ -1,3 +1,30 @@
+.no-overflow {
+  overflow: hidden; }
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.fixed-center {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.offscreen-left {
+  left: -500px; }
+
+.offscreen-right {
+  right: -1500px; }
+
 .piece1 {
   display: block; }
 
@@ -13,3 +40,46 @@
   display: block;
   top: 150px;
   left: 150px; }
+
+.front-face {
+  left: -2px;
+  -webkit-transform: rotateY(0deg) translateZ(50px);
+  -moz-transform: rotateY(0deg) translateZ(50px);
+  -ms-transform: rotateY(0deg) translateZ(50px);
+  transform: rotateY(0deg) translateZ(50px); }
+
+.back-face {
+  left: 99px;
+  top: -100px;
+  -webkit-transform: rotateX(180deg) translateZ(50px);
+  -moz-transform: rotateX(180deg) translateZ(50px);
+  -ms-transform: rotateX(180deg) translateZ(50px);
+  transform: rotateX(180deg) translateZ(50px); }
+
+.right-face {
+  left: 960px;
+  -webkit-transform: rotateY(-134deg) rotateZ(35deg) skew(35deg);
+  -moz-transform: rotateY(-134deg) rotateZ(35deg) skew(35deg);
+  -ms-transform: rotateY(-134deg) rotateZ(35deg) skew(35deg);
+  transform: rotateY(-134deg) rotateZ(35deg) skew(35deg); }
+
+.left-face {
+  left: -38px;
+  -webkit-transform: rotateY(-135deg) rotateZ(35deg) skew(35deg);
+  -moz-transform: rotateY(-135deg) rotateZ(35deg) skew(35deg);
+  -ms-transform: rotateY(-135deg) rotateZ(35deg) skew(35deg);
+  transform: rotateY(-135deg) rotateZ(35deg) skew(35deg); }
+
+.top-face {
+  top: -119px;
+  -webkit-transform: rotateX(45deg) translateX(48px) skew(-35deg);
+  -moz-transform: rotateX(45deg) translateX(48px) skew(-35deg);
+  -ms-transform: rotateX(45deg) translateX(48px) skew(-35deg);
+  transform: rotateX(45deg) translateX(48px) skew(-35deg); }
+
+.bottom-face {
+  top: 203px;
+  -webkit-transform: rotateX(45deg) translateX(49px) skew(-35deg);
+  -moz-transform: rotateX(45deg) translateX(49px) skew(-35deg);
+  -ms-transform: rotateX(45deg) translateX(49px) skew(-35deg);
+  transform: rotateX(45deg) translateX(49px) skew(-35deg); }
