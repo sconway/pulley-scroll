@@ -129,8 +129,12 @@
   }
 }
 
+
+// ====================== PORTFOLIO ========================
+
+
 .highlight-box {
-  height: 1000px;
+  height: 1250px;
 }
 
 .highlight-box:not(:nth-child(1)) {
@@ -161,6 +165,7 @@
 
   &:hover {
     cursor: pointer;
+    @include transform( rotateY(180deg) );
   }
 
   &.left-prism {
@@ -176,7 +181,7 @@
 
   .prism-face {
     position: absolute;
-    background-color: #777;
+    background-color: $secondary;
     opacity: 0.8;
     border: 2px solid black;
   }
@@ -209,14 +214,15 @@
 }
 
 .highlight-window {
-  border: 5px solid orange;
+  border: 5px solid $secondary;
   border-radius: 7px;
   width: 90%;
   height: auto;
   max-height:90%;
+  overflow: hidden;
 
   &:hover {
-    box-shadow: 0px 0px 20px orange;
+    box-shadow: 0px 0px 20px $secondary;
     cursor: pointer;
   }
 }

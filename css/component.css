@@ -110,7 +110,7 @@
       color: #000; }
 
 .highlight-box {
-  height: 1000px; }
+  height: 1250px; }
 
 .highlight-box:not(:nth-child(1)) {
   margin-top: 40px;
@@ -134,7 +134,11 @@
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d; }
   .prism:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
   .prism.left-prism {
     top: 100px;
     left: 0px;
@@ -149,7 +153,7 @@
       transform: rotate(180deg); }
   .prism .prism-face {
     position: absolute;
-    background-color: #777;
+    background-color: orange;
     opacity: 0.8;
     border: 2px solid black; }
   .prism .front-face,
@@ -176,7 +180,8 @@
   border-radius: 7px;
   width: 90%;
   height: auto;
-  max-height: 90%; }
+  max-height: 90%;
+  overflow: hidden; }
   .highlight-window:hover {
     box-shadow: 0px 0px 20px orange;
     cursor: pointer; }

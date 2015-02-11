@@ -133,9 +133,7 @@ function initMobileEffects () {
 function initScrollEffects() {
 
     var middle = $(window).height() / 2;
-
-    // set certain elements to be the height of the browser window
-
+    var leeway = $(window).height() / 6;
 
     // check if the scroll magic object exists
     if ( typeof ScrollMagic !== "undefined" ) {
@@ -143,7 +141,7 @@ function initScrollEffects() {
         // initialize controllers
         var controller = new ScrollMagic(),
             slideImageLeft1 = TweenMax.to("#slide-left-1", 1, {className: "+=offscreen-left"}),
-            slidePrismRight1 = TweenMax.to("#slide-in-right-1", 1, {left: 600, rotationX: 360}),
+            slidePrismRight1 = TweenMax.to("#slide-in-right-1", 1, {rotationX: 360, className: "+=offscreen-right"}),
             slidePrismLeft1 = TweenMax.to("#slide-in-right-2", 1, {rotationX: 360, className: "-=offscreen-right"}),
             slideImageRight1 = TweenMax.to("#slide-in-left-1", 1, {className: "-=offscreen-left"}),
             slideImageLeft2 = TweenMax.to("#slide-in-left-1", 1, {className: "+=offscreen-left"}),
@@ -155,12 +153,12 @@ function initScrollEffects() {
 
 
         // build scene to slide the first image left
-        var scene1 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + 50})
+        var scene1 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + leeway})
                         .setTween(slideImageLeft1)
                         .addTo(controller);
 
         // build scene to slide the first prism right
-        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + 50})
+        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + leeway})
                         .setTween(slidePrismRight1)
                         .addTo(controller);
 

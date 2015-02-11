@@ -16,6 +16,7 @@
 }
 
 
+
 @media (min-width: 768px) {
 
 .puzzle-container { 
@@ -114,8 +115,8 @@
 }
 
 .site-description {
-  font-size: 20px;
-  width: 390px;
+  font-size: 32px;
+  width: 700px;
 }
 
 .prism { 
@@ -137,7 +138,23 @@
   }
 }
 
+}//END 768
 
 
 
+@media (min-width: 769px) {
+
+.prism {
+  left: 50%;
 }
+
+.highlight-window {
+  width: 350px
+}
+
+.highlight-window.fixed-center {
+  @include transform(translate(-125%, -50%));
+}
+
+}//END 768
+

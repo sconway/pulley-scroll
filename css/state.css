@@ -84,8 +84,8 @@
     height: 100vh; }
 
   .site-description {
-    font-size: 20px;
-    width: 390px; }
+    font-size: 32px;
+    width: 700px; }
 
   .prism {
     height: 400px; }
@@ -98,3 +98,15 @@
       top: -4px; }
     .prism .bottom-face {
       top: 403px; } }
+@media (min-width: 769px) {
+  .prism {
+    left: 50%; }
+
+  .highlight-window {
+    width: 350px; }
+
+  .highlight-window.fixed-center {
+    -webkit-transform: translate(-125%, -50%);
+    -moz-transform: translate(-125%, -50%);
+    -ms-transform: translate(-125%, -50%);
+    transform: translate(-125%, -50%); } }
