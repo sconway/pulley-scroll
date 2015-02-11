@@ -126,6 +126,12 @@
       cursor: pointer;
       color: #000;
     }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
   }
 }
 
@@ -165,7 +171,6 @@
 
   &:hover {
     cursor: pointer;
-    @include transform( rotateY(180deg) );
   }
 
   &.left-prism {

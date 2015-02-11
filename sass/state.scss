@@ -156,5 +156,17 @@
   @include transform(translate(-125%, -50%));
 }
 
-}//END 768
+.offscreen-right {
+  left: 105%;
+}
 
+}//END 769
+
+
+@media (min-width: 1200px) {
+
+.highlight-window.fixed-center {
+  @include transform(translate(-150%, -50%));
+}
+
+}

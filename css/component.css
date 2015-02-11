@@ -108,6 +108,9 @@
     .home-nav li:hover {
       cursor: pointer;
       color: #000; }
+    .home-nav li a {
+      text-decoration: none;
+      color: #fff; }
 
 .highlight-box {
   height: 1250px; }
@@ -134,11 +137,7 @@
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d; }
   .prism:hover {
-    cursor: pointer;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    transform: rotateY(180deg); }
+    cursor: pointer; }
   .prism.left-prism {
     top: 100px;
     left: 0px;

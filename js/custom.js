@@ -1,4 +1,37 @@
 
+(function($,sr){
+
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+
+      return function debounced () {
+          var obj = this, args = arguments;
+          function delayed () {
+              if (!execAsap)
+                  func.apply(obj, args);
+              timeout = null;
+          };
+
+          if (timeout)
+              clearTimeout(timeout);
+          else if (execAsap)
+              func.apply(obj, args);
+
+          timeout = setTimeout(delayed, threshold || 100);
+      };
+  }
+  // smartresize 
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery,'smartresize');
+
+
+/*
+* Function to be used to add a given class name to a given element,
+* after a specified delay
+*/
 function addAfterTimeout($el, className, delay) {
     setTimeout(function() {
         $el.addClass(className);
@@ -201,6 +234,8 @@ function initScrollEffects() {
 
 $(document).ready(function() {
 
+    var urlLastPart = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+
     initAnimation();
 
     // // if we're on a small screen device, make sure that 
@@ -212,9 +247,11 @@ $(document).ready(function() {
     } else {
         initScrollEffects();
     }
+
+    $(window).smartresize(function() {
+        if (urlLastPart === "portfolio.html") {
+            location.reload();
+        }
+    });
  
-
-    
-    
-
 });
