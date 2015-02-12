@@ -105,12 +105,12 @@
       top: -2px; }
     .home-nav li:last-child:after {
       bottom: -2px; }
-    .home-nav li:hover {
-      cursor: pointer;
-      color: #000; }
     .home-nav li a {
       text-decoration: none;
       color: #fff; }
+      .home-nav li a:hover {
+        cursor: pointer;
+        color: #000; }
 
 .highlight-box {
   height: 1250px; }

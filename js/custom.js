@@ -14,11 +14,13 @@
               timeout = null;
           };
 
-          if (timeout)
+          if (timeout) {
               clearTimeout(timeout);
-          else if (execAsap)
+          }
+          else if (execAsap) { 
               func.apply(obj, args);
-
+          }
+              
           timeout = setTimeout(delayed, threshold || 100);
       };
   }
