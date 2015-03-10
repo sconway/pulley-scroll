@@ -1,6 +1,5 @@
 
 (function($,sr){
-
   // debouncing function from John Hann
   // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
   var debounce = function (func, threshold, execAsap) {
@@ -30,6 +29,7 @@
 })(jQuery,'smartresize');
 
 
+
 /*
 * Function to be used to add a given class name to a given element,
 * after a specified delay
@@ -40,20 +40,52 @@ function addAfterTimeout($el, className, delay) {
     }, delay);
 }
 
+/* 
+* This small helper function is to be used on the homepage to bring 
+* in the overlay, after the animation has finished  
+*/
 function coverContainer(delay) {
     setTimeout(function() {
         $(".overlay").show(1000);
     }, delay);
 }
 
+/*
+* Function to check whether the supplied element is visible in the 
+* current view-port. It returns true for elements that are partially 
+* visible as well
+*/
+function inViewPort(el) {
+    var top = el.offset().top,
+        height = el.height();
+
+    // console.log(top);
+    // console.log(height);
+    // console.log(window.pageYOffset);
+    // console.log(window.innerHeight);
+
+
+    return  (
+                top < (window.pageYOffset + window.innerHeight) &&
+                (top + height) > window.pageYOffset
+            ); 
+}
+
+
+/* 
+* Function that is called on the homepage, and used to kick off the 
+* puzzle animation. It adds a class name to each element involved, 
+* allowing it to take the necessary position on the screen.
+*/
 function initAnimation() {
+
     if ($(window).width() < 768) {
         addAfterTimeout($(".piece1"), "in-place", 50);
-        addAfterTimeout($(".piece4"), "in-place", 1500);
-        addAfterTimeout($(".piece13"), "in-place", 3500);
-        addAfterTimeout($(".piece16"), "in-place", 2500);
-        coverContainer(5000);
-        addAfterTimeout($(".home-nav"), "in-place", 6000);
+        addAfterTimeout($(".piece4"), "in-place", 1000);
+        addAfterTimeout($(".piece13"), "in-place", 3000);
+        addAfterTimeout($(".piece16"), "in-place", 2000);
+        coverContainer(3750);
+        addAfterTimeout($(".home-nav"), "in-place", 4750);
     }else{
         addAfterTimeout($(".piece1"), "in-place", 50);
         addAfterTimeout($(".piece2"), "in-place", 1000);
@@ -71,8 +103,8 @@ function initAnimation() {
         addAfterTimeout($(".piece14"), "in-place", 6000);
         addAfterTimeout($(".piece15"), "in-place", 7500);
         addAfterTimeout($(".piece16"), "in-place", 5000);
-        coverContainer(9500);
-        addAfterTimeout($(".home-nav"), "in-place", 10500);
+        coverContainer(8750);
+        addAfterTimeout($(".home-nav"), "in-place", 9750);
     }
 
 }
@@ -83,17 +115,17 @@ function initAnimation() {
 */
 function initMobileEffects () {
 
-    var middle = $(window).height() / 2;
-    var leeway = $(window).height() / 6;
-    console.log(middle);
+    var deviceHeight = $(window).height();
+    var scrollPoints = $(".scroll-point");
+    var pointCount = 0;
+    var clickCount = 1;
 
-    // $(".full-height").css("height", $(window).height());
+    $(".full-height-mobile").css("height", deviceHeight);
     $(".highlight-window").css("position", "fixed");
     
     // check if the scroll magic object exists
     if ( typeof ScrollMagic !== "undefined" ) {
 
-        // init controller
         var controller = new ScrollMagic(),
             slideImageLeft1 = TweenMax.to("#slide-left-1", 1, {className: "+=offscreen-left"}),
             slidePrismLeft1 = TweenMax.to("#slide-in-right-1", 1, {left: 50, rotationX: 360}),
@@ -108,58 +140,95 @@ function initMobileEffects () {
 
 
         // build scene to slide the first image left
-        var scene = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + leeway})
+        var scene = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*0.75})
                         .setTween(slideImageLeft1)
                         .addTo(controller);
 
         // build scene to slide the first prism in from the right
-        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 1.25})
+        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight})
                         .setTween(slidePrismLeft1)
                         .addTo(controller); 
 
         // build scene to slide the prism out to the right
-        var scene3 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 2.5})
+        var scene3 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*1.5})
                         .setTween(slidePrismRight1)
                         .addTo(controller);               
 
         // build scene to slide the second image in from the left
-        var scene4 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 2.6})
+        var scene4 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 2})
                         .setTween(slideImageRight1)
                         .addTo(controller);                
 
         // build scene to slide the second image out to the left
-        var scene5 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 3.5})
+        var scene5 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 2.5})
                         .setTween(slideImageLeft2)
                         .addTo(controller);
 
         // build scene to slide the second prism in from the right
-        var scene6 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 3.5})
+        var scene6 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 3})
                         .setTween(slidePrismLeft2)
                         .addTo(controller);    
 
         // build scene to slide the second prism out to the right 
-        var scene7 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 4.4})
+        var scene7 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 3.5})
                         .setTween(slidePrismRight2)
                         .addTo(controller);     
 
         // build scene to slide the second prism out to the right 
-        var scene8 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 4.4})
+        var scene8 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 4})
                         .setTween(slideImageRight2)
                         .addTo(controller);                
 
         // build scene to slide the third image in from the left
-        var scene9 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 5.25})
+        var scene9 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 4.5})
                         .setTween(slideImageLeft3)
                         .addTo(controller);                
 
-        var scene10 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle * 5})
+        var scene10 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 5})
                         .setTween(slidePrismLeft3)
-                        .addTo(controller);                     
+                        .addTo(controller);                    
+    }// END IF
+    
+    // add a custom ID to all of the scroll points in the document
+    $(".scroll-point").each( function() {
+        var scrollId = "scroll-point-" + pointCount;
+        $(this).attr("id", scrollId);
+        pointCount += 1;
+    });
 
-        // show indicators (requires debug extension)
-        scene.addIndicators();
-    }
-}
+    // listens for a click event on the page scroll button
+    $('.page-scroll').click( function(event) {
+        var nextScrollPoint = $("#scroll-point-" + clickCount);
+        
+        // scroll to the next element with a scroll point ID
+        $('html, body').stop().animate({
+            scrollTop: nextScrollPoint.offset().top
+        }, 1500, 'linear');
+
+        event.preventDefault();
+        clickCount += 1;
+    });
+
+    // listens for a scroll event and once it has been 
+    // a given amount of time, it executes the code in 
+    // the function body
+    $(window).scroll(function() {
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+            scrollPoints.each(function() {
+                if( inViewPort($(this)) ) {
+                    var elementInView = $(this).attr("id"),
+                        elementIndex = parseInt(elementInView.charAt(elementInView.length - 1), 10);
+                    clickCount = elementIndex + 1;
+                    console.log(clickCount);
+                }
+            });
+        }, 250));
+    });
+
+
+
+} // END initMobileEffects
 
 
 /*
@@ -167,8 +236,10 @@ function initMobileEffects () {
 */
 function initScrollEffects() {
 
-    var middle = $(window).height() / 2;
-    var leeway = $(window).height() / 6;
+    var deviceHeight = $(window).height();
+    var scrollPoints = $(".scroll-point");
+    var pointCount = 0;
+    var clickCount = 1;
 
     // check if the scroll magic object exists
     if ( typeof ScrollMagic !== "undefined" ) {
@@ -183,77 +254,116 @@ function initScrollEffects() {
             slidePrismRight2 = TweenMax.to("#slide-in-right-2", 1, {rotationX: 360, className: "+=offscreen-right"}),
             slideImageRight2 = TweenMax.to("#slide-in-left-2", 1, {className: "-=offscreen-left"}),
             slidePrismLeft2 = TweenMax.to("#slide-in-right-3", 1, {rotationX: 360, className: "-=offscreen-right"});
-            // slideImageLeft3 = TweenMax.to("#slide-in-left-2", 1, {className: "+=offscreen-left"}),
-            // slidePrismLeft3 = TweenMax.to("#slide-in-right-3", 1, {left: 50, top: -275, rotationX: 360});
 
 
         // build scene to slide the first image left
-        var scene1 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + leeway})
+        var scene1 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight})
                         .setTween(slideImageLeft1)
                         .addTo(controller);
 
         // build scene to slide the first prism right
-        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle + leeway})
+        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight})
                         .setTween(slidePrismRight1)
                         .addTo(controller);
 
         // build scene to slide the second image right, into view
-        var scene3 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle*2 })
+        var scene3 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*1.5})
                         .setTween(slidePrismLeft1)
                         .addTo(controller);
 
         // build scene to slide the second prism left
-        var scene4 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: middle*2})
+        var scene4 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*1.5 })
                         .setTween(slideImageRight1)
                         .addTo(controller);
 
         // build scene to slide the second prism left
-        var scene5 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: 1500})
+        var scene5 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*2.5})
                         .setTween(slidePrismRight2)
                         .addTo(controller);
 
         // build scene to slide the second prism left
-        var scene6 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: 1500})
+        var scene6 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*2.5})
                         .setTween(slideImageLeft2)
                         .addTo(controller);
 
         // build scene to slide the second prism left
-        var scene7 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: 1800})
+        var scene7 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*3})
                         .setTween(slideImageRight2)
                         .addTo(controller);
 
         // build scene to slide the second prism left
-        var scene8 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: 1800})
+        var scene8 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*3})
                         .setTween(slidePrismLeft2)
                         .addTo(controller);
+    }// END IF
+    
 
-        // show indicators (requires debug extension)
-        scene1.addIndicators();
-    }
-}
+    // add a custom ID to all of the scroll points in the document
+    $(".scroll-point").each( function() {
+        var scrollId = "scroll-point-" + pointCount;
+        $(this).attr("id", scrollId);
+        pointCount += 1;
+    });
+
+    // listens for a click event on the page scroll button
+    $('.page-scroll').click( function(event) {
+        var nextScrollPoint = $("#scroll-point-" + clickCount);
+        
+        // scroll to the next element with a scroll point ID
+        $('html, body').stop().animate({
+            scrollTop: nextScrollPoint.offset().top
+        }, 1500, 'linear');
+
+        event.preventDefault();
+        clickCount += 2;
+    });
+
+    // listens for a scroll event and once it has been 
+    // a given amount of time, it executes the code in 
+    // the function body
+    $(window).scroll(function() {
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+            scrollPoints.each(function() {
+                if( inViewPort($(this)) ) {
+                    var elementInView = $(this).attr("id"),
+                        elementIndex = parseInt(elementInView.charAt(elementInView.length - 1), 10);
+                    clickCount = elementIndex + 1;
+                    console.log(clickCount);
+                }
+            });
+        }, 250));
+    });
+} // END initScrollEffects
 
 
 
+// run this when the document is loaded and a few behind the scene events finish
 $(document).ready(function() {
 
     var urlLastPart = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-
+    
     initAnimation();
 
-    // // if we're on a small screen device, make sure that 
-    // // the element's container takes up the full height of the 
-    // // device. This is to allow the featured elements to be
-    // // centered vertically on smaller devices
-    if ( $(window).width() <= 768 ) {
-        initMobileEffects();
-    } else {
-        initScrollEffects();
-    }
-
-    $(window).smartresize(function() {
-        if (urlLastPart === "portfolio.html") {
-            location.reload();
+    
+    if (urlLastPart === "portfolio.html") {
+        
+        if ( $(window).width() <= 768 ) {
+            initMobileEffects();
+        } else {
+            initScrollEffects();
         }
-    });
+
+
+        $(window).smartresize(function() {
+            location.reload();
+        });
+    }
+    
+
+    
+
+    
+
  
 });
