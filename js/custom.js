@@ -82,29 +82,29 @@ function initAnimation() {
     if ($(window).width() < 768) {
         addAfterTimeout($(".piece1"), "in-place", 50);
         addAfterTimeout($(".piece4"), "in-place", 1000);
-        addAfterTimeout($(".piece13"), "in-place", 3000);
-        addAfterTimeout($(".piece16"), "in-place", 2000);
-        coverContainer(3750);
-        addAfterTimeout($(".home-nav"), "in-place", 4750);
+        addAfterTimeout($(".piece13"), "in-place", 2000);
+        addAfterTimeout($(".piece16"), "in-place", 1500);
+        coverContainer(2500);
+        addAfterTimeout($(".home-nav"), "in-place", 3000);
     }else{
         addAfterTimeout($(".piece1"), "in-place", 50);
-        addAfterTimeout($(".piece2"), "in-place", 1000);
-        addAfterTimeout($(".piece4"), "in-place", 1500);
-        addAfterTimeout($(".piece5"), "in-place", 2000);
-        addAfterTimeout($(".piece3"), "in-place", 2500);
-        addAfterTimeout($(".piece6"), "in-place", 4500);
-        addAfterTimeout($(".piece7"), "in-place", 3500);
-        addAfterTimeout($(".piece8"), "in-place", 4000);
-        addAfterTimeout($(".piece9"), "in-place", 3000);
-        addAfterTimeout($(".piece10"), "in-place", 8000);
-        addAfterTimeout($(".piece11"), "in-place", 5500);
-        addAfterTimeout($(".piece12"), "in-place", 7000);
-        addAfterTimeout($(".piece13"), "in-place", 6500);
-        addAfterTimeout($(".piece14"), "in-place", 6000);
-        addAfterTimeout($(".piece15"), "in-place", 7500);
-        addAfterTimeout($(".piece16"), "in-place", 5000);
-        coverContainer(8750);
-        addAfterTimeout($(".home-nav"), "in-place", 9750);
+        addAfterTimeout($(".piece2"), "in-place", 750);
+        addAfterTimeout($(".piece4"), "in-place", 1250);
+        addAfterTimeout($(".piece5"), "in-place", 1750);
+        addAfterTimeout($(".piece3"), "in-place", 2250);
+        addAfterTimeout($(".piece6"), "in-place", 3500);
+        addAfterTimeout($(".piece7"), "in-place", 2750);
+        addAfterTimeout($(".piece8"), "in-place", 3000);
+        addAfterTimeout($(".piece9"), "in-place", 2500);
+        addAfterTimeout($(".piece10"), "in-place", 6000);
+        addAfterTimeout($(".piece11"), "in-place", 3750);
+        addAfterTimeout($(".piece12"), "in-place", 5250);
+        addAfterTimeout($(".piece13"), "in-place", 4750);
+        addAfterTimeout($(".piece14"), "in-place", 4250);
+        addAfterTimeout($(".piece15"), "in-place", 5500);
+        addAfterTimeout($(".piece16"), "in-place", 3250);
+        coverContainer(7250);
+        addAfterTimeout($(".home-nav"), "in-place", 8000);
     }
 
 }
@@ -209,9 +209,9 @@ function initMobileEffects () {
         clickCount += 1;
     });
 
-    // listens for a scroll event and once it has been 
-    // a given amount of time, it executes the code in 
-    // the function body
+    // Used on the portfolio page to find the elements in 
+    // the viewport, so the scroll button will properly
+    // go to the next element
     $(window).scroll(function() {
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function() {
@@ -225,8 +225,6 @@ function initMobileEffects () {
             });
         }, 250));
     });
-
-
 
 } // END initMobileEffects
 
