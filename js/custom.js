@@ -40,15 +40,27 @@ function addAfterTimeout($el, className, delay) {
     }, delay);
 }
 
+
 /* 
 * This small helper function is to be used on the homepage to bring 
 * in the overlay, after the animation has finished  
 */
 function coverContainer(delay) {
     setTimeout(function() {
-        $(".overlay").show(1000);
+        $(".overlay").addClass("opaque");
     }, delay);
 }
+
+
+/*
+*  This function is used to set the width of the site description 
+*  text container on the portfolio page. 
+*/
+function setContainerWidth() {
+    var descWidth = window.innerWidth/2 - 40;
+    $(".site-description").css("width", descWidth);
+}
+
 
 /*
 * Function to check whether the supplied element is visible in the 
@@ -58,12 +70,6 @@ function coverContainer(delay) {
 function inViewPort(el) {
     var top = el.offset().top,
         height = el.height();
-
-    // console.log(top);
-    // console.log(height);
-    // console.log(window.pageYOffset);
-    // console.log(window.innerHeight);
-
 
     return  (
                 top < (window.pageYOffset + window.innerHeight) &&
@@ -87,41 +93,35 @@ function initAnimation() {
         coverContainer(2500);
         addAfterTimeout($(".home-nav"), "in-place", 3000);
     }else{
-        addAfterTimeout($(".piece1"), "in-place", 50);
-        addAfterTimeout($(".piece2"), "in-place", 750);
-        addAfterTimeout($(".piece4"), "in-place", 1250);
-        addAfterTimeout($(".piece5"), "in-place", 1750);
-        addAfterTimeout($(".piece3"), "in-place", 2250);
-        addAfterTimeout($(".piece6"), "in-place", 3500);
-        addAfterTimeout($(".piece7"), "in-place", 2750);
-        addAfterTimeout($(".piece8"), "in-place", 3000);
-        addAfterTimeout($(".piece9"), "in-place", 2500);
-        addAfterTimeout($(".piece10"), "in-place", 6000);
-        addAfterTimeout($(".piece11"), "in-place", 3750);
-        addAfterTimeout($(".piece12"), "in-place", 5250);
-        addAfterTimeout($(".piece13"), "in-place", 4750);
-        addAfterTimeout($(".piece14"), "in-place", 4250);
-        addAfterTimeout($(".piece15"), "in-place", 5500);
-        addAfterTimeout($(".piece16"), "in-place", 3250);
-        coverContainer(7250);
-        addAfterTimeout($(".home-nav"), "in-place", 8000);
+        addAfterTimeout($(".piece6"), "in-place", 500);
+        addAfterTimeout($(".piece8"), "in-place", 1000);
+        addAfterTimeout($(".piece9"), "in-place", 2000);
+        addAfterTimeout($(".piece11"), "in-place", 1500);
+        addAfterTimeout($(".piece14"), "in-place", 2500);
+        coverContainer(3000);
+        addAfterTimeout($(".home-nav"), "in-place", 3500);
     }
 
 }
 
 
 /*
-*  Function to handle events occurring on smaller screen devices
+*  Function to handle the scroll effects and events that occur
+*  on smaller screen devices (768px or less).
 */
 function initMobileEffects () {
 
-    var deviceHeight = $(window).height();
-    var scrollPoints = $(".scroll-point");
-    var pointCount = 0;
-    var clickCount = 1;
+    var deviceHeight = $(window).height(),
+        scrollPoints = $(".scroll-point"),
+        stopPoint = null,
+        nthType = 4,
+        pointCount = 0,
+        clickCount = 0,
+        scrollEnd = false;
+        
 
     $(".full-height-mobile").css("height", deviceHeight);
-    $(".highlight-window").css("position", "fixed");
+    // $(".highlight-window").css("position", "fixed");
     
     // check if the scroll magic object exists
     if ( typeof ScrollMagic !== "undefined" ) {
@@ -139,56 +139,68 @@ function initMobileEffects () {
             slidePrismLeft3 = TweenMax.to("#slide-in-right-3", 1, {left: 50, rotationX: 360, className: "-=offscreen-right"});
 
 
-        // build scene to slide the first image left
-        var scene = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*0.75})
+        // build scene to slide the first image left, out of view
+        var scene = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 0.5})
                         .setTween(slideImageLeft1)
-                        .addTo(controller);
+                        .addTo(controller)
+                        .addIndicators();
 
         // build scene to slide the first prism in from the right
-        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight})
+        var scene2 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 0.55})
                         .setTween(slidePrismLeft1)
-                        .addTo(controller); 
+                        .addTo(controller)
+                        .addIndicators(); 
 
         // build scene to slide the prism out to the right
-        var scene3 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight*1.5})
+        var scene3 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * .95})
                         .setTween(slidePrismRight1)
-                        .addTo(controller);               
+                        .addTo(controller)
+                        .addIndicators();               
 
         // build scene to slide the second image in from the left
-        var scene4 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 2})
+        var scene4 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight})
                         .setTween(slideImageRight1)
-                        .addTo(controller);                
+                        .addTo(controller)
+                        .addIndicators();                
 
         // build scene to slide the second image out to the left
-        var scene5 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 2.5})
+        var scene5 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 1.4})
                         .setTween(slideImageLeft2)
-                        .addTo(controller);
+                        .addTo(controller)
+                        .addIndicators();
 
         // build scene to slide the second prism in from the right
-        var scene6 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 3})
+        var scene6 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 1.45})
                         .setTween(slidePrismLeft2)
-                        .addTo(controller);    
+                        .addTo(controller)
+                        .addIndicators();    
 
         // build scene to slide the second prism out to the right 
-        var scene7 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 3.5})
+        var scene7 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 1.85})
                         .setTween(slidePrismRight2)
-                        .addTo(controller);     
-
-        // build scene to slide the second prism out to the right 
-        var scene8 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 4})
-                        .setTween(slideImageRight2)
-                        .addTo(controller);                
+                        .addTo(controller)
+                        .addIndicators();     
 
         // build scene to slide the third image in from the left
-        var scene9 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 4.5})
-                        .setTween(slideImageLeft3)
-                        .addTo(controller);                
+        var scene8 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 1.9})
+                        .setTween(slideImageRight2)
+                        .addTo(controller)
+                        .addIndicators();                
 
-        var scene10 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 5})
+        // build scene to slide the third image in from the left
+        var scene9 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 2.3})
+                        .setTween(slideImageLeft3)
+                        .addTo(controller)
+                        .addIndicators();                
+
+        var scene10 = new ScrollScene({triggerElement: "#trigger-1", duration: 200, offset: deviceHeight * 2.35})
                         .setTween(slidePrismLeft3)
-                        .addTo(controller);                    
+                        .addTo(controller)
+                        .addIndicators();                   
     }// END IF
     
+    var hookPosn = $(".ScrollSceneIndicators:first").find(".hook").offset().top;
+
     // add a custom ID to all of the scroll points in the document
     $(".scroll-point").each( function() {
         var scrollId = "scroll-point-" + pointCount;
@@ -196,35 +208,94 @@ function initMobileEffects () {
         pointCount += 1;
     });
 
-    // listens for a click event on the page scroll button
-    $('.page-scroll').click( function(event) {
-        var nextScrollPoint = $("#scroll-point-" + clickCount);
+     // listens for a click event on the page Up scroll button
+    $("#scrollArrowUp").click( function(event) {
+        console.log("up clicked");
         
+        // if there have been no clicks, we can't go up
+        if (clickCount === 0) {
+            console.log("no count, up returning");
+            return;
+        }
+
+        // remove one from the count since we will be moving up
+        clickCount -= 1;
+        var nextScrollPoint = $("#scroll-point-" + clickCount);
+
+        console.log(nextScrollPoint);
+
         // scroll to the next element with a scroll point ID
         $('html, body').stop().animate({
-            scrollTop: nextScrollPoint.offset().top
+            scrollTop: nextScrollPoint.top
         }, 1500, 'linear');
 
         event.preventDefault();
+    });
+
+    // listens for a click event on the page Down scroll button
+    $('#scrollArrowDown').click( function(event) {
+        event.preventDefault();
+        console.log("down click");
+
+        var scrollPoint = 0,
+            newSelector = null;
+
+        // helps us keep track of what element should be in the viewport    
         clickCount += 1;
+        // construct a selector to grab the element with our next stopping point    
+        newSelector = ".ScrollSceneIndicators:nth-of-type(" +nthType+ ")";
+
+        // make sure that the next indicator actually exists,
+        // and get the current offset from the top of the document.
+        // This allows us to scroll to the location just before 
+        // the next animation starts.
+        if ($(newSelector).find(".start").length > 0) {
+            console.log("next element exists");
+            stopPoint = $(newSelector).find(".start").offset().top;
+            scrollPoint = stopPoint - hookPosn;
+            nthType += 2;
+        } else if (!scrollEnd) {
+            console.log("last scroll");
+            scrollEnd = true;
+            newSelector = ".ScrollSceneIndicators:nth-of-type(" +(nthType-1)+ ")";
+            stopPoint = $(newSelector).find(".end").offset().top;
+            scrollPoint = stopPoint - hookPosn;
+        } else {
+            console.log("Out of scrolls");
+            return;
+        }
+
+        console.log("nthType: ", nthType);
+        console.log("hook position: ", hookPosn);
+        console.log("stop point: ", stopPoint);
+        console.log("scroll point: ", scrollPoint);
+        console.log("click count: ", clickCount);
+        
+        
+
+        // scroll to the next element with a scroll point ID
+        $('html, body').stop().animate({
+            scrollTop: scrollPoint
+        }, 1500, 'linear');
+
+        
     });
 
     // Used on the portfolio page to find the elements in 
     // the viewport, so the scroll button will properly
     // go to the next element
-    $(window).scroll(function() {
-        clearTimeout($.data(this, 'scrollTimer'));
-        $.data(this, 'scrollTimer', setTimeout(function() {
-            scrollPoints.each(function() {
-                if( inViewPort($(this)) ) {
-                    var elementInView = $(this).attr("id"),
-                        elementIndex = parseInt(elementInView.charAt(elementInView.length - 1), 10);
-                    clickCount = elementIndex + 1;
-                    console.log(clickCount);
-                }
-            });
-        }, 250));
-    });
+    // $(window).scroll(function() {
+    //     clearTimeout($.data(this, 'scrollTimer'));
+    //     $.data(this, 'scrollTimer', setTimeout(function() {
+    //         scrollPoints.each(function() {
+    //             if( inViewPort($(this)) ) {
+    //                 var elementInView = $(this).attr("id"),
+    //                     elementIndex = parseInt(elementInView.charAt(elementInView.length - 1), 10);
+    //                 clickCount = elementIndex;
+    //             }
+    //         });
+    //     }, 250));
+    // });
 
 } // END initMobileEffects
 
@@ -237,7 +308,7 @@ function initScrollEffects() {
     var deviceHeight = $(window).height();
     var scrollPoints = $(".scroll-point");
     var pointCount = 0;
-    var clickCount = 1;
+    var clickCount = 0;
 
     // check if the scroll magic object exists
     if ( typeof ScrollMagic !== "undefined" ) {
@@ -303,8 +374,27 @@ function initScrollEffects() {
         pointCount += 1;
     });
 
+     // listens for a click event on the page scroll button
+    $("#scrollArrowUp").click( function(event) {
+        console.log("clicked");
+        var nextScrollPoint = $("#scroll-point-" + clickCount-2);
+        
+        if (clickCount === 0) {
+            console.log("returning");
+            return;
+        }
+
+        // scroll to the next element with a scroll point ID
+        $('html, body').stop().animate({
+            scrollTop: nextScrollPoint.offset().top
+        }, 1500, 'linear');
+
+        event.preventDefault();
+        clickCount += 2;
+    });
+
     // listens for a click event on the page scroll button
-    $('.page-scroll').click( function(event) {
+    $("#scrollArrowDown").click( function(event) {
         var nextScrollPoint = $("#scroll-point-" + clickCount);
         
         // scroll to the next element with a scroll point ID
@@ -332,6 +422,8 @@ function initScrollEffects() {
             });
         }, 250));
     });
+
+    setContainerWidth();
 } // END initScrollEffects
 
 
@@ -339,12 +431,21 @@ function initScrollEffects() {
 // run this when the document is loaded and a few behind the scene events finish
 $(document).ready(function() {
 
-    var urlLastPart = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+    // $(window).scroll(function() {
+    //      var screenheight = parseInt($(document).height());
+    //      var scrolledpx = parseInt($("body").scrollTop());     
+    //      var sum = screenheight+scrolledpx;
+    //      console.log($("body").scrollTop());
+    //      console.log("screen: " + screenheight);
+    //      console.log("sum=" + sum);
+    // })
+
+    // var urlLastPart = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
     
     initAnimation();
 
-    
-    if (urlLastPart === "portfolio.html") {
+    // run this if the portfolio page exists
+    if ($("#portfolio").length > 0) {
         
         if ( $(window).width() <= 768 ) {
             initMobileEffects();
@@ -354,8 +455,8 @@ $(document).ready(function() {
 
 
         $(window).smartresize(function() {
-            location.reload();
-        });
+
+        }); 
     }
     
 

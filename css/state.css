@@ -1,3 +1,6 @@
+.opaque {
+  opacity: 1.0; }
+
 .in-place {
   opacity: 1; }
   .in-place.piece {
@@ -5,6 +8,9 @@
     -moz-transform: scale3d(1, 1, 1);
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
+
+.full-height {
+  height: 100%; }
 
 .rotate-360 {
   -webkit-transform: rotateX(360deg);
@@ -22,65 +28,46 @@
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale(1); }
-
   25% {
     -webkit-transform: scale(1.5); }
-
   50% {
     -webkit-transform: scale(1); }
-
   100% {
     -webkit-transform: scale(1); } }
-
 @-moz-keyframes pulse {
   0% {
     -moz-transform: scale(1); }
-
   25% {
     -moz-transform: scale(1.5); }
-
   50% {
     -moz-transform: scale(1); }
-
   100% {
     -moz-transform: scale(1); } }
-
 @-ms-keyframes pulse {
   0% {
     -ms-transform: scale(1); }
-
   25% {
     -ms-transform: scale(1.5); }
-
   50% {
     -ms-transform: scale(1); }
-
   100% {
     -ms-transform: scale(1); } }
-
 @-o-keyframes pulse {
   0% {
     -o-transform: scale(1); }
-
   25% {
     -o-transform: scale(1.5); }
-
   50% {
     -o-transform: scale(1); }
-
   100% {
     -o-transform: scale(1); } }
-
 @keyframes pulse {
   0% {
     transform: scale(1); }
-
   50% {
     transform: scale(1.5); }
-
   100% {
     transform: scale(1); } }
-
 @media (min-width: 768px) {
   .puzzle-container {
     width: 600px;
@@ -156,8 +143,7 @@
     height: 500px; }
 
   .site-description {
-    font-size: 32px;
-    width: 700px; }
+    font-size: 32px; }
 
   .prism {
     height: 400px; }
@@ -170,7 +156,7 @@
       top: -4px; }
     .prism .bottom-face {
       top: 403px; } }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .highlight-box {
     height: 1250px; }
 
@@ -201,3 +187,5 @@
     -moz-transform: translate(-115%, -50%);
     -ms-transform: translate(-115%, -50%);
     transform: translate(-115%, -50%); } }
+
+/*# sourceMappingURL=state.css.map */

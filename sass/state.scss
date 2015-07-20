@@ -1,6 +1,10 @@
 @import "vars";
 @import "mixins";
 
+.opaque {
+  opacity: 1.0;
+}
+
 .in-place { 
 	opacity: 1;
 
@@ -9,7 +13,11 @@
   }
 }
 
-// class name to be added to an object
+.full-height {
+  height: 100%;
+}
+
+// class name to be added to an object1
 // that is intended to rotate full circle
 .rotate-360 {
   @include transform( rotateX(360deg) ); 
@@ -212,7 +220,7 @@
 
 .site-description {
   font-size: 32px;
-  width: 700px;
+  // width: 700px;
 }
 
 .prism { 
@@ -234,11 +242,11 @@
   }
 }
 
-}//END 768
+}
 
 
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
 
 .highlight-box {
   height: 1250px;
