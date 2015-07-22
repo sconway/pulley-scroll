@@ -69,11 +69,14 @@ function setContainerWidth() {
 */
 function inViewPort(el) {
     var top = el.offset().top,
+        left = el.offset().left,
         height = el.height();
 
     return  (
-                top < (window.pageYOffset + window.innerHeight) &&
-                (top + height) > window.pageYOffset
+                top < (window.pageYOffset + window.innerHeight) && 
+                (top + height) > window.pageYOffset && 
+                (left > 0 && left < window.innerWidth)
+                
             ); 
 }
 
@@ -114,14 +117,13 @@ function initMobileEffects () {
     var deviceHeight = $(window).height(),
         scrollPoints = $(".scroll-point"),
         stopPoint = null,
-        nthType = 4,
+        nthType = 0,
         pointCount = 0,
         clickCount = 0,
         scrollEnd = false;
         
 
     $(".full-height-mobile").css("height", deviceHeight);
-    // $(".highlight-window").css("position", "fixed");
     
     // check if the scroll magic object exists
     if ( typeof ScrollMagic !== "undefined" ) {
@@ -201,32 +203,34 @@ function initMobileEffects () {
     
     var hookPosn = $(".ScrollSceneIndicators:first").find(".hook").offset().top;
 
-    // add a custom ID to all of the scroll points in the document
-    $(".scroll-point").each( function() {
-        var scrollId = "scroll-point-" + pointCount;
-        $(this).attr("id", scrollId);
-        pointCount += 1;
-    });
-
      // listens for a click event on the page Up scroll button
     $("#scrollArrowUp").click( function(event) {
-        console.log("up clicked");
+        console.log("up click");
+
+        var scrollPoint = 0,
+            newSelector = null;
+
+        if (scrollEnd) {scrollEnd = false;}
         
         // if there have been no clicks, we can't go up
         if (clickCount === 0) {
-            console.log("no count, up returning");
+            console.log("no count, returning");
             return;
+        }else {
+            clickCount -= 1;
+            newSelector = ".ScrollSceneIndicators:nth-of-type(" +(clickCount*2+2)+ ")";
+            stopPoint = $(newSelector).find(".start").offset().top;
+            scrollPoint = stopPoint - hookPosn;
         }
 
-        // remove one from the count since we will be moving up
-        clickCount -= 1;
-        var nextScrollPoint = $("#scroll-point-" + clickCount);
-
-        console.log(nextScrollPoint);
+        console.log("hook position: ", hookPosn);
+        console.log("stop point: ", stopPoint);
+        console.log("scroll point: ", scrollPoint);
+        console.log("click count: ", clickCount);
 
         // scroll to the next element with a scroll point ID
         $('html, body').stop().animate({
-            scrollTop: nextScrollPoint.top
+            scrollTop: scrollPoint
         }, 1500, 'linear');
 
         event.preventDefault();
@@ -240,24 +244,27 @@ function initMobileEffects () {
         var scrollPoint = 0,
             newSelector = null;
 
-        // helps us keep track of what element should be in the viewport    
-        clickCount += 1;
-        // construct a selector to grab the element with our next stopping point    
-        newSelector = ".ScrollSceneIndicators:nth-of-type(" +nthType+ ")";
-
-        // make sure that the next indicator actually exists,
-        // and get the current offset from the top of the document.
+        // only increment the click count and construct the new 
+        // selector if we are not at the end of the scroll items
+        if (!scrollEnd) {
+            clickCount += 1;
+            // grabs the element with the next stopping point    
+            newSelector = ".ScrollSceneIndicators:nth-of-type(" +(clickCount*2+2)+ ")";
+            console.log(newSelector);   
+        }
+        
+        // make sure that the next stopping indicator actually exists,
+        // and get its current offset from the top of the document.
         // This allows us to scroll to the location just before 
         // the next animation starts.
         if ($(newSelector).find(".start").length > 0) {
             console.log("next element exists");
             stopPoint = $(newSelector).find(".start").offset().top;
             scrollPoint = stopPoint - hookPosn;
-            nthType += 2;
         } else if (!scrollEnd) {
             console.log("last scroll");
             scrollEnd = true;
-            newSelector = ".ScrollSceneIndicators:nth-of-type(" +(nthType-1)+ ")";
+            newSelector = ".ScrollSceneIndicators:nth-of-type(" +(clickCount*2+1)+ ")";
             stopPoint = $(newSelector).find(".end").offset().top;
             scrollPoint = stopPoint - hookPosn;
         } else {
@@ -265,37 +272,34 @@ function initMobileEffects () {
             return;
         }
 
-        console.log("nthType: ", nthType);
         console.log("hook position: ", hookPosn);
         console.log("stop point: ", stopPoint);
         console.log("scroll point: ", scrollPoint);
         console.log("click count: ", clickCount);
-        
-        
 
         // scroll to the next element with a scroll point ID
         $('html, body').stop().animate({
             scrollTop: scrollPoint
         }, 1500, 'linear');
-
-        
-    });
+    }); // end scrollDownClick
 
     // Used on the portfolio page to find the elements in 
-    // the viewport, so the scroll button will properly
-    // go to the next element
-    // $(window).scroll(function() {
-    //     clearTimeout($.data(this, 'scrollTimer'));
-    //     $.data(this, 'scrollTimer', setTimeout(function() {
-    //         scrollPoints.each(function() {
-    //             if( inViewPort($(this)) ) {
-    //                 var elementInView = $(this).attr("id"),
-    //                     elementIndex = parseInt(elementInView.charAt(elementInView.length - 1), 10);
-    //                 clickCount = elementIndex;
-    //             }
-    //         });
-    //     }, 250));
-    // });
+    // the viewport, so the handlers for the clicks to scroll
+    // between elements will know which element to scroll to
+    $(window).scroll(function() {
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+            scrollPoints.each(function() {
+                if( inViewPort($(this)) ) {
+                    var elementInView = $(this).attr("id"),
+                        elementIndex = parseInt(scrollPoints.index($(this)), 10);
+                    clickCount = elementIndex;
+                    console.log("element in view: ", elementInView);
+                    console.log("element index: ", elementIndex);
+                }
+            });
+        }, 250));
+    });
 
 } // END initMobileEffects
 
