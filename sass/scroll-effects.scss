@@ -1,0 +1,111 @@
+@import "vars";
+@import "mixins";
+
+.three-d-container { 
+  position: relative;
+  height: 200px;
+}
+
+
+// a prism, in this context, is a 3-d element to be contained in 
+// an element with some perspective. It this class will mainly be 
+// used for the skewed rectangular prism containing the website description
+.prism {
+  position: fixed;
+  width: 90%;
+  height: 200px;
+  
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 800px;
+
+  @include transform-style( preserve-3d );
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.left-prism {
+    top: 100px;
+    left: 0px;
+
+    @include transform( rotate(180deg) );
+    
+    .site-description {
+      @include transform( rotate(180deg) );
+    }
+  }
+
+  .prism-face {
+    position: absolute;
+    background-color: $secondary;
+    opacity: 0.8;
+    border: 2px solid black;
+  }
+
+  .front-face, 
+  .back-face {
+    width: 1000px;
+    height: 325px;
+  }
+
+  .right-face,
+  .left-face {
+    width: 175px;
+    height: 266px;
+    top: -21px;
+  }
+
+  .top-face,
+  .bottom-face {
+    width: 1000px;
+    height: 141px;
+  }
+}
+
+.highlight-window {
+  background-image: url("../images/wolf-greenfield.png");
+  background-size: cover;
+  border: 5px solid $secondary;
+  border-radius: 7px;
+  width: 90%;
+  height: 70%;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0px 0px 20px $secondary;
+    cursor: pointer;
+  }
+}
+
+.site-description {
+  position: relative;
+  font-size: 16px;
+  width: 260px;
+  padding: 20px;
+}
+
+.scroll-arrow {
+  position: fixed;
+  left: 45%;
+  z-index: 2;
+
+  @include transform( translateX(-50%) );
+  @include transition(all .2s ease);
+
+  color: #000;
+  font-size: 42px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.scroll-arrow__up {
+    top: 3%;
+  }
+
+  &.scroll-arrow__down {
+    top: 89%;
+  }
+}

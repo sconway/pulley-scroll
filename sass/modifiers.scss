@@ -1,0 +1,57 @@
+@import "vars";
+@import "mixins";
+
+.full-screen {
+  height: 100%;
+  width: 100%;
+}
+
+.fixed-center-horizontal {
+  position: fixed;
+  left: 50%;
+  @include transform( translateX(-50%) );
+}
+
+.hover-pointer {
+  &:hover {
+  	cursor: pointer;
+  }
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.bg-dark {
+  background: url("../images/bg-dark.jpg");
+}
+
+.bg-wolf {
+  background: url("../images/wolf-greenfield.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+
+.pad-all-15 {
+  padding: 15px;
+}
+
+.font-small {
+  font-size: 80%;
+}
+
+.raised-text-black {
+  text-shadow: .5px .5px 0px #000;
+  color: #000;
+  transform: scale3d(1.5,1.5,1.5);
+}

@@ -1,0 +1,91 @@
+.three-d-container {
+  position: relative;
+  height: 200px; }
+
+.prism {
+  position: fixed;
+  width: 90%;
+  height: 200px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 800px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+  .prism:hover {
+    cursor: pointer; }
+  .prism.left-prism {
+    top: 100px;
+    left: 0px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+    .prism.left-prism .site-description {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  .prism .prism-face {
+    position: absolute;
+    background-color: orange;
+    opacity: 0.8;
+    border: 2px solid black; }
+  .prism .front-face,
+  .prism .back-face {
+    width: 1000px;
+    height: 325px; }
+  .prism .right-face,
+  .prism .left-face {
+    width: 175px;
+    height: 266px;
+    top: -21px; }
+  .prism .top-face,
+  .prism .bottom-face {
+    width: 1000px;
+    height: 141px; }
+
+.highlight-window {
+  background-image: url("../images/wolf-greenfield.png");
+  background-size: cover;
+  border: 5px solid orange;
+  border-radius: 7px;
+  width: 90%;
+  height: 70%;
+  overflow: hidden; }
+  .highlight-window:hover {
+    box-shadow: 0px 0px 20px orange;
+    cursor: pointer; }
+
+.site-description {
+  position: relative;
+  font-size: 16px;
+  width: 260px;
+  padding: 20px; }
+
+.scroll-arrow {
+  position: fixed;
+  left: 45%;
+  z-index: 2;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: #000;
+  font-size: 42px; }
+  .scroll-arrow:hover {
+    cursor: pointer; }
+  .scroll-arrow.scroll-arrow__up {
+    top: 3%; }
+  .scroll-arrow.scroll-arrow__down {
+    top: 89%; }
+
+/*# sourceMappingURL=scroll-effects.css.map */
