@@ -6,17 +6,11 @@
 }
 
 .in-place { 
-	opacity: 1;
+	opacity: 1.0;
 
   &.piece {
 	  @include transform(scale3d(1,1,1));
   }
-}
-
-// class name to be added to an object1
-// that is intended to rotate full circle
-.rotate-360 {
-  @include transform( rotateX(360deg) ); 
 }
 
 // class to be added to an element that 
@@ -112,7 +106,7 @@
 }
 
 
-
+/* -------------------- Small devices and larger -----------------*/
 @media (min-width: 768px) {
 
 .puzzle-container { 
@@ -122,6 +116,14 @@
 
 .piece { 
 	display: block;
+}
+
+.in-place-md { 
+  opacity: 1.0;
+
+  &.piece {
+    @include transform(scale3d(1,1,1));
+  }
 }
 
 .home-nav {

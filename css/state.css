@@ -2,18 +2,12 @@
   opacity: 1.0; }
 
 .in-place {
-  opacity: 1; }
+  opacity: 1.0; }
   .in-place.piece {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
-
-.rotate-360 {
-  -webkit-transform: rotateX(360deg);
-  -moz-transform: rotateX(360deg);
-  -ms-transform: rotateX(360deg);
-  transform: rotateX(360deg); }
 
 .pulsate {
   -webkit-animation: pulse 1s ease infinite;
@@ -65,6 +59,7 @@
     transform: scale(1.5); }
   100% {
     transform: scale(1); } }
+/* -------------------- Small devices and larger -----------------*/
 @media (min-width: 768px) {
   .puzzle-container {
     width: 600px;
@@ -72,6 +67,14 @@
 
   .piece {
     display: block; }
+
+  .in-place-md {
+    opacity: 1.0; }
+    .in-place-md.piece {
+      -webkit-transform: scale3d(1, 1, 1);
+      -moz-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1); }
 
   .home-nav {
     font-size: 64px; }

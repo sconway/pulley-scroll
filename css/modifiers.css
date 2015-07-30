@@ -16,6 +16,9 @@
 .no-overflow {
   overflow: hidden; }
 
+.fixed {
+  position: fixed; }
+
 .bg-dark {
   background: url("../images/bg-dark.jpg"); }
 
@@ -25,6 +28,12 @@
 
 .text-center {
   text-align: center; }
+
+.text-orange {
+  color: #f0960f; }
+
+.text-white {
+  color: #fff; }
 
 .mt-5 {
   margin-top: 5px; }

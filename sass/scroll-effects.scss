@@ -1,6 +1,13 @@
 @import "vars";
 @import "mixins";
 
+
+// class name to be added to an object1
+// that is intended to rotate full circle
+.rotate-360 {
+  @include transform( rotateX(360deg) ); 
+}
+
 .three-d-container { 
   position: relative;
   height: 200px;

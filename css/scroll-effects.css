@@ -1,3 +1,9 @@
+.rotate-360 {
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  transform: rotateX(360deg); }
+
 .three-d-container {
   position: relative;
   height: 200px; }
@@ -31,7 +37,7 @@
       transform: rotate(180deg); }
   .prism .prism-face {
     position: absolute;
-    background-color: orange;
+    background-color: #f0960f;
     opacity: 0.8;
     border: 2px solid black; }
   .prism .front-face,
@@ -51,13 +57,13 @@
 .highlight-window {
   background-image: url("../images/wolf-greenfield.png");
   background-size: cover;
-  border: 5px solid orange;
+  border: 5px solid #f0960f;
   border-radius: 7px;
   width: 90%;
   height: 70%;
   overflow: hidden; }
   .highlight-window:hover {
-    box-shadow: 0px 0px 20px orange;
+    box-shadow: 0px 0px 20px #f0960f;
     cursor: pointer; }
 
 .site-description {
