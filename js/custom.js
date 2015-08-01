@@ -70,22 +70,23 @@ function initAnimation() {
 
 
 /*
-*  Handler function for the keypress events on the portfolio page.
-*  Used to cycle the carousel when one of the arrow keys are hit.
+*  Handler function for the user interaction events on the portfolio page.
+*  Used to cycle the carousel when one of the arrow keys are hit, or
+*  when a user swipes on their device.
 */
-function handleKeyPress(carousel) {
-    console.log("handling key presses");
+function handleUI(carousel) {
+    
     $(document).keydown( function(e) {
         switch (e.which) {
             case 37: // left
                 carousel.rotation += carousel.theta * -1;
                 carousel.transform();
                 break;
-            case 38: // right
+            case 38: // up
                 carousel.rotation += carousel.theta * -1;
                 carousel.transform();
                 break;
-            case 39: // up
+            case 39: // right
                 carousel.rotation += carousel.theta;
                 carousel.transform();
                 break;
@@ -97,16 +98,19 @@ function handleKeyPress(carousel) {
                 return;
         }
     });
-
-    $("body").on("scroll", function() {
-        console.log("swipe!");
-        carousel.rotation += carousel.theta * 1 * -1;
-        carousel.transform();
+    
+    $(document).swipe( {
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+            if (direction === "left" || direction === "down") {
+                carousel.rotation += carousel.theta * -1;
+            }else {
+                carousel.rotation += carousel.theta;
+            }
+            carousel.transform();
+        }
     });
-}
-
-
-
+    
+} // END handleKeyPress()
 
 
 var init = function() {
@@ -194,7 +198,7 @@ var init = function() {
         carousel.modify();     
     });
 
-    handleKeyPress(carousel);
+    handleUI(carousel);
 };
 
 

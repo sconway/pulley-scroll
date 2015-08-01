@@ -154,7 +154,7 @@
   -o-perspective: 1100px;
   perspective: 1100px; }
 
-#carousel {
+.carousel {
   position: relative;
   top: 20%;
   width: 80%;
