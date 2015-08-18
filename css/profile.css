@@ -1,0 +1,113 @@
+body {
+  background-color: #DFFDFF;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-kerning: normal;
+  /* antialiased, none, subpixel-antialiased*/
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-smooth: always; }
+
+.page-section {
+  height: 100%;
+  position: relative;
+  top: -40px;
+  width: 100%; }
+
+.home-heading {
+  position: absolute;
+  left: 5%;
+  text-transform: lowercase;
+  top: 10%; }
+  @media (min-width: 768px) {
+    .home-heading {
+      left: 10%; } }
+
+.side-nav {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+  .side-nav ul li {
+    margin-bottom: 15px;
+    padding-right: 20px;
+    position: relative; }
+    .side-nav ul li:before {
+      content: "";
+      width: 13px;
+      height: 1px;
+      right: 20px;
+      top: 50%;
+      position: absolute;
+      background-color: #000; }
+    .side-nav ul li.active:before {
+      visibility: hidden; }
+    .side-nav ul li.active a {
+      visibility: visible !important; }
+    .side-nav ul li a {
+      color: #fff;
+      visibility: hidden; }
+
+.block--bottom {
+  background-color: #000;
+  bottom: -15%;
+  height: 15%;
+  position: absolute;
+  right: 5%;
+  width: 20%; }
+  .block--bottom.middle-leg {
+    right: 30%; }
+  .block--bottom.left-leg {
+    right: 55%; }
+  .block--bottom.in-place {
+    bottom: 0px; }
+
+.block--middle {
+  background-color: #000;
+  bottom: 60%;
+  position: absolute;
+  height: 15%;
+  right: -40%;
+  width: 50%;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+  .block--middle.in-place {
+    bottom: 15%;
+    right: 15%;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+.block--top {
+  background-color: #000;
+  bottom: 120%;
+  position: absolute;
+  height: 15%;
+  right: 25%;
+  width: 30%; }
+  .block--top.in-place {
+    bottom: 30%; }
+
+.code--top {
+  bottom: 210px;
+  font-size: 104px;
+  position: absolute;
+  right: 26%; }
+
+.shaking-ground {
+  background-color: #463329;
+  bottom: -40px;
+  height: 40px;
+  position: absolute;
+  right: 10%;
+  width: 40%; }
+
+/*# sourceMappingURL=profile.css.map */

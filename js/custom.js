@@ -113,6 +113,9 @@ function handleUI(carousel) {
 } // END handleKeyPress()
 
 
+
+
+
 var init = function() {
     var carousel = new Carousel3D( document.getElementById('carousel') ),
         panelCount = $("#carousel").children().length,
@@ -132,8 +135,6 @@ var init = function() {
 
     Carousel3D.prototype.modify = function() {
         var panel, angle, i, spacing;
-
-        
 
         console.log("outer width: ", window.outerWidth);
         console.log("outer height: ", window.outerHeight);
@@ -168,7 +169,6 @@ var init = function() {
         // hide other panels
         for (  ; i < this.totalPanelCount; i++ ) {
             panel = this.element.children[i];
-            // panel.style.opacity = 0;
             panel.style[ transformProp ] = 'none';
         }
 
@@ -205,12 +205,16 @@ var init = function() {
 // run this when the document is loaded and a few behind the scene events finish
 $(document).ready(function() {
 
-    // var urlLastPart = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
     initAnimation();
+
+    $(".flip-toggle").click(function() {
+        $(this).parent().parent().find(".back-side").toggle();
+    });
 
     // run this if the portfolio page exists
     if ($("#portfolio").length > 0) {
         init();
     }
+
 
 });

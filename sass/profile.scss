@@ -1,0 +1,144 @@
+@import "vars";
+@import "mixins";
+
+body {
+  background-color: #DFFDFF;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-kerning: normal;
+
+  @include antialiasing;
+}
+
+.page-section {
+  height: 100%;
+  position: relative;
+  top: -1 * $bottom-preview-size;
+  width: 100%;
+}
+
+.home-heading {
+	position: absolute;
+  left: 5%;
+  text-transform: lowercase;
+  top: 10%;
+
+  @media (min-width: $breakpoint-small) {
+    left: 10%;
+  }
+    
+}
+
+.side-nav {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  @include transform( translateY(-50%) );
+
+  ul {
+
+    li {
+      margin-bottom: 15px;
+      padding-right: $right-offset;
+      position: relative;
+
+      &:before {
+        content: "";
+        width: 13px;
+        height: 1px;
+        right: $right-offset;
+        top: 50%;
+        position: absolute;
+        background-color: #000;
+      }
+
+      &.active {
+        &:before {
+          visibility: hidden;
+        }
+
+        a {
+          visibility: visible !important;
+        }
+      }
+
+      a {
+        color: #fff;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.block--bottom {
+  background-color: #000;
+  bottom: -15%;
+  height: 15%;
+  position: absolute;
+  right: 5%;
+  width: 20%;
+
+  @media (min-width: $breakpoint-small) {
+
+  }
+
+  &.middle-leg {
+    right: 30%;
+  }
+
+  &.left-leg {
+    right: 55%;
+  }
+
+  &.in-place {
+    bottom: 0px;
+  }
+
+}
+
+.block--middle {
+  background-color: #000;
+  bottom: 60%;
+  position: absolute;
+  height: 15%;
+  right: -40%;
+  width: 50%;
+  @include transform( rotate(90deg) );
+
+  &.in-place {
+    bottom: 15%;
+    right: 15%;
+    @include transform( rotate(0deg) );
+  }
+}
+
+.block--top {
+  background-color: #000;
+  bottom: 120%;
+  position: absolute;
+  height: 15%;
+  right: 25%;
+  width: 30%;
+
+  &.in-place {
+    bottom: 30%;
+  }
+}
+
+.code--top {
+  bottom: 210px;
+  font-size: 104px;
+  position: absolute;
+  right: 26%;
+}
+
+.shaking-ground {
+  background-color: $bg-brown;
+  bottom: -1 * $bottom-preview-size;
+  height: $bottom-preview-size;
+  position: absolute;
+  right: 10%;
+  width: 40%;
+}

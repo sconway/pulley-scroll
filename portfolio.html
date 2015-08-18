@@ -13,23 +13,56 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/state.css" />
   <link rel="stylesheet" href="css/modifiers.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
 
-
+  
   <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="js/TouchSwipe/jquery.touchSwipe.min.js"></script>
 </head>
 <body id="portfolio" class="fixed bg-dark full-screen">
 
 <section class="container full-screen">
-  <i class="icon-arrow-right2 cycle-carousel next-arrow fixed-center-horizontal hover-pointer pulsate text-white" data-increment="1"></i>
+  <i class="icon-arrow-right2 cycle-carousel next-arrow fixed-center-horizontal hover-pointer text-white" data-increment="1"></i>
   <div id="carousel" class="carousel">
-    <figure class="carousel-stop bg-wolf"></figure>
-    <figure class="carousel-stop bg-hcfm"></figure>
-    <figure class="carousel-stop">3</figure>
-    <figure class="carousel-stop">4</figure>
-    <figure class="carousel-stop">5</figure>
+    <div class="carousel-stop">
+      <figure class="panel-container">
+        <div class="display-panel bg-wolf">
+          <span class="flip-toggle text-3d">Read More</span>
+        </div>
+        <div class="display-panel full-screen bg-teal back-side">
+          <h2 class="text-center description-heading">Wolf Greenfield</h2>
+          <h3 class="text-center description-heading smaller">Careers Section</h3>
+          <span class="flip-toggle bottom text-3d">Back</span>
+        </div>
+      </figure>
+    </div>
+    <div class="carousel-stop">
+      <div class="display-panel bg-hcfm">
+        <span class="flip-toggle text-3d light">Read More</span>
+      </div>
+      <div class="display-panel full-screen bg-brown back-side">
+        <h2 class="text-center description-heading">Holy Cross Family Ministries</h2>
+        <h3 class="text-center description-heading smaller">Father Peyton Site</h3>
+        <span class="flip-toggle bottom text-3d light">Back</span>
+      </div>
+    </div>
+    <div class="carousel-stop">
+      <div class="display-panel bg-wolf">
+        <span class="flip-toggle">Read More</span>
+      </div>
+    </div>
+    <div class="carousel-stop">
+      <div class="display-panel bg-wolf">
+        <span class="flip-toggle">Read More</span>
+      </div>
+    </div>
+    <div class="carousel-stop">
+      <div class="display-panel bg-wolf">
+        <span class="flip-toggle">Read More</span>
+      </div>
+    </div>
   </div>
-  <i class="icon-arrow-left2 cycle-carousel prev-arrow fixed-center-horizontal hover-pointer pulsate text-white" data-increment="-1"></i>
+  <i class="icon-arrow-left2 cycle-carousel prev-arrow fixed-center-horizontal hover-pointer text-white" data-increment="-1"></i>
 </section>
 
 
