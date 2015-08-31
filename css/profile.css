@@ -9,20 +9,22 @@ body {
   font-smoothing: antialiased;
   font-smooth: always; }
 
-.page-section {
+.page-section,
+.cutoff-wipe,
+.rope-cutoff-wipe {
+  background-color: #DFFDFF;
   height: 100%;
   position: relative;
-  top: -40px;
   width: 100%; }
 
 .home-heading {
   position: absolute;
   left: 5%;
   text-transform: lowercase;
-  top: 10%; }
+  top: 75px; }
   @media (min-width: 768px) {
     .home-heading {
-      left: 10%; } }
+      left: 150px; } }
 
 .side-nav {
   position: fixed;
@@ -48,66 +50,131 @@ body {
     .side-nav ul li.active:before {
       visibility: hidden; }
     .side-nav ul li.active a {
-      visibility: visible !important; }
+      opacity: 1; }
     .side-nav ul li a {
       color: #fff;
-      visibility: hidden; }
+      opacity: 0; }
 
-.block--bottom {
-  background-color: #000;
-  bottom: -15%;
-  height: 15%;
-  position: absolute;
-  right: 5%;
-  width: 20%; }
-  .block--bottom.middle-leg {
-    right: 30%; }
-  .block--bottom.left-leg {
-    right: 55%; }
-  .block--bottom.in-place {
-    bottom: 0px; }
+.pulley-wheel {
+  background: url("../images/rope-bg.jpg");
+  border-radius: 50%;
+  height: 100px;
+  left: 25px;
+  position: fixed;
+  top: 50px;
+  width: 100px;
+  z-index: 2; }
 
-.block--middle {
-  background-color: #000;
-  bottom: 60%;
-  position: absolute;
-  height: 15%;
-  right: -40%;
-  width: 50%;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg); }
-  .block--middle.in-place {
-    bottom: 15%;
-    right: 15%;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg); }
+.pulley-wheel--outer {
+  background: #333;
+  background: -webkit-linear-gradient(bottom right, #333 0%, #666 10%, #999, 50%, #AAA 90%, #DDD 100%);
+  background: linear-gradient(to top left, #333 0%, #666 10%, #999, 50%, #AAA 90%, #DDD 100%);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  position: fixed;
+  left: 30px;
+  top: 55px;
+  z-index: 5; }
 
-.block--top {
-  background-color: #000;
-  bottom: 120%;
-  position: absolute;
-  height: 15%;
-  right: 25%;
-  width: 30%; }
-  .block--top.in-place {
-    bottom: 30%; }
+.pulley-wheel--indentation {
+  background: #333;
+  background: -webkit-linear-gradient(top left, #333 0%, #666 10%, #888 20%, #999 33%, #AAA 66%, #DDD 90%, #DDD 100%);
+  background: linear-gradient(to bottom right, #333 0%, #666 10%, #888 20%, #999 33%, #AAA 66%, #DDD 90%, #DDD 100%);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  left: 40px;
+  top: 65px;
+  z-index: 6; }
 
-.code--top {
-  bottom: 210px;
-  font-size: 104px;
-  position: absolute;
-  right: 26%; }
-
-.shaking-ground {
-  background-color: #463329;
-  bottom: -40px;
+.pulley-wheel--ridge {
+  background: #666;
+  background: -webkit-linear-gradient(bottom right, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100%);
+  background: linear-gradient(to top left, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100%);
+  border-radius: 50%;
   height: 40px;
+  width: 40px;
+  position: fixed;
+  left: 55px;
+  top: 80px;
+  z-index: 7; }
+
+.pulley-wheel--bump {
+  background: #666;
+  background: -webkit-linear-gradient(top left, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100%);
+  background: linear-gradient(to bottom right, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100%);
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  position: fixed;
+  left: 58px;
+  top: 83px;
+  z-index: 8; }
+
+.pulley-wheel--hole {
+  background-color: #333;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  position: fixed;
+  left: 70px;
+  top: 95px;
+  z-index: 9; }
+
+.rope {
+  background: url("../images/rope-bg.jpg");
+  background-position: 44%;
   position: absolute;
-  right: 10%;
-  width: 40%; }
+  height: 200%;
+  left: 115px;
+  top: 0;
+  width: 10px;
+  z-index: 1; }
+  .rope.left {
+    height: 200%;
+    left: 25px;
+    position: fixed;
+    top: -175%; }
+
+.rope--weight {
+  position: fixed;
+  left: 0px;
+  width: 60px;
+  z-index: 2;
+  top: 24%; }
+
+.rope--hook {
+  position: absolute;
+  width: 60px;
+  left: 104px;
+  top: -77px;
+  z-index: 3; }
+
+.wrapper--rope-cutoff {
+  background-color: #DFFDFF;
+  height: 100px;
+  left: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  width: 125px;
+  z-index: 2; }
+  .wrapper--rope-cutoff .bg-dark-wood.rope-cutoff-wipe {
+    background-position: -20px 0px; }
+  .wrapper--rope-cutoff .bg-dark-wood.cutoff-wipe {
+    background-position: -35px -70px; }
+
+.wrapper--bottom-cutoff {
+  background-color: #DFFDFF;
+  height: 50px;
+  left: 35px;
+  overflow: hidden;
+  position: fixed;
+  top: 100px;
+  width: 80px;
+  z-index: 3; }
 
 /*# sourceMappingURL=profile.css.map */

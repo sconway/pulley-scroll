@@ -11,10 +11,12 @@ body {
   @include antialiasing;
 }
 
-.page-section {
+.page-section, 
+.cutoff-wipe, 
+.rope-cutoff-wipe {
+  background-color: #DFFDFF;
   height: 100%;
   position: relative;
-  top: -1 * $bottom-preview-size;
   width: 100%;
 }
 
@@ -22,10 +24,10 @@ body {
 	position: absolute;
   left: 5%;
   text-transform: lowercase;
-  top: 10%;
+  top: 75px;
 
   @media (min-width: $breakpoint-small) {
-    left: 10%;
+    left: 150px;
   }
     
 }
@@ -60,85 +62,152 @@ body {
         }
 
         a {
-          visibility: visible !important;
+          opacity: 1;
         }
       }
 
       a {
         color: #fff;
-        visibility: hidden;
+        opacity: 0;
       }
     }
   }
 }
 
-.block--bottom {
-  background-color: #000;
-  bottom: -15%;
-  height: 15%;
+.pulley-wheel {
+  background: url("../images/rope-bg.jpg");
+  border-radius: 50%;
+  height: 100px;
+  left: 25px;
+  position: fixed;
+  top: 50px;
+  width: 100px;
+  z-index: 2;
+}
+
+.pulley-wheel--outer {
+  @include linear-gradient( to top left, #333 0%, #666 10%, #999, 50%, #AAA 90%, #DDD 100% );
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  position: fixed;
+  left: 30px;
+  top: 55px;
+  z-index: 5;
+}
+
+.pulley-wheel--indentation {
+  @include linear-gradient( to bottom right, #333 0%, #666 10%, #888 20%, #999 33%, #AAA 66%, #DDD 90%, #DDD 100% );
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  left: 40px;
+  top: 65px;
+  z-index: 6;
+}
+
+.pulley-wheel--ridge {
+  @include linear-gradient( to top left, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100% );
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  left: 55px;
+  top: 80px;
+  z-index: 7;
+}
+
+.pulley-wheel--bump {
+  @include linear-gradient( to bottom right, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100% );
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  position: fixed;
+  left: 58px;
+  top: 83px;
+  z-index: 8;
+}
+
+.pulley-wheel--hole {
+  background-color: #333;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  position: fixed;
+  left: 70px;
+  top: 95px;
+  z-index: 9;
+}
+
+
+.rope {
+  background: url("../images/rope-bg.jpg");
+  background-position: 44%;
   position: absolute;
-  right: 5%;
-  width: 20%;
+  height: 200%;
+  left: 115px;
+  top: 0;
+  width: $rope-width;
+  z-index: 1;
 
-  @media (min-width: $breakpoint-small) {
-
+  &.left {
+    height: 200%;
+    left: 25px;
+    position: fixed;
+    top: -175%;
   }
+}
 
-  &.middle-leg {
-    right: 30%;
-  }
+.rope--weight {
+  position: fixed;
+  left: 0px;
+  width: 60px;
+  z-index: 2;
+  top: 24%;
+}
 
-  &.left-leg {
-    right: 55%;
-  }
+.rope--hook {
+  position: absolute;
+  width: 60px;
+  left: 104px;
+  top: -77px;
+  z-index: 3;
+}
 
-  &.in-place {
-    bottom: 0px;
+.wrapper--rope-cutoff {
+  background-color: #DFFDFF;
+  height: 100px;
+  left: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  width: 125px;
+  z-index: 2;
+
+  .bg-dark-wood {
+    &.rope-cutoff-wipe {
+      background-position: -20px 0px;
+    }
+
+    &.cutoff-wipe {
+      background-position: -35px -70px;
+    }
   }
 
 }
 
-.block--middle {
-  background-color: #000;
-  bottom: 60%;
-  position: absolute;
-  height: 15%;
-  right: -40%;
-  width: 50%;
-  @include transform( rotate(90deg) );
 
-  &.in-place {
-    bottom: 15%;
-    right: 15%;
-    @include transform( rotate(0deg) );
-  }
+.wrapper--bottom-cutoff {
+  background-color: #DFFDFF;
+  height: 50px;
+  left: 35px;
+  overflow: hidden;
+  position: fixed;
+  top: 100px;
+  width: 80px;
+  z-index: 3;
 }
 
-.block--top {
-  background-color: #000;
-  bottom: 120%;
-  position: absolute;
-  height: 15%;
-  right: 25%;
-  width: 30%;
 
-  &.in-place {
-    bottom: 30%;
-  }
-}
-
-.code--top {
-  bottom: 210px;
-  font-size: 104px;
-  position: absolute;
-  right: 26%;
-}
-
-.shaking-ground {
-  background-color: $bg-brown;
-  bottom: -1 * $bottom-preview-size;
-  height: $bottom-preview-size;
-  position: absolute;
-  right: 10%;
-  width: 40%;
-}

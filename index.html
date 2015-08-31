@@ -13,39 +13,54 @@
   <link rel="stylesheet" href="css/state.css" />
   <link rel="stylesheet" href="css/modifiers.css" />
   <link rel="stylesheet" href="css/profile.css" />
-
 </head>
 <body>
 
   <nav id="sideNav" class="side-nav">
     <ul>
       <li id="link1"><a href="#section0">Home</a></li>
-      <li><a href="#section1">Work</a></li>
+      <li id="link2"><a href="#section1">Work</a></li>
       <li><a href="#section2">Info</a></li>
     </ul>
   </nav>
 
   <div class="wrapper full-screen">
-    <section id="section0" class="page-section">
-    	<article class="home-heading">
+    <div class="wrapper--rope-cutoff">
+      <section class="rope-cutoff-wipe-1 rope-cutoff-wipe"></section>
+      <section class="rope-cutoff-wipe-2 rope-cutoff-wipe bg-brown"></section>
+      <section class="rope-cutoff-wipe-3 rope-cutoff-wipe bg-dark"></section>
+    </div>
+
+    <div class="wrapper--bottom-cutoff">
+      <section class="cutoff-wipe-1 cutoff-wipe"></section>
+      <section class="cutoff-wipe-2 cutoff-wipe bg-brown"></section>
+      <section class="cutoff-wipe-3 cutoff-wipe bg-dark"></section>
+    </div>
+
+    <figure class="pulley-wheel wheel-part"></figure>
+    <div class="pulley-wheel--outer wheel-part"></div>
+    <div class="pulley-wheel--indentation wheel-part"></div>
+    <div class="pulley-wheel--ridge wheel-part"></div>
+    <div class="pulley-wheel--bump wheel-part"></div>
+    <div class="pulley-wheel--hole wheel-part"></div>
+
+    <figure class="rope"></figure>
+    <figure id="leftRope" class="rope left"></figure>
+    <img class="rope--weight" id="ropeWeight" src="images/weight.png" alt="rope weight">
+
+    <section id="section0" class="page-section section-0">
+<!--     	<article class="home-heading">
     	  <h1>Hi. I'm Scott</h1>
     	  <h2>I like to build things with code</h2>
-    	</article>
-
-      <div class="block--bottom left-leg"></div>
-      <div class="block--bottom middle-leg"></div>
-      <div class="block--bottom"></div>
-      <div class="block--middle"></div>
-      <div class="block--top"></div>
-
-      <aside class="code--top">
-      </aside>
-
-      <!-- <div class="shaking-ground"></div> -->
+    	</article> -->
     </section>
 
-    <section id="section1" class="page-section bg-brown">
-    	
+    <section id="section1" class="page-section section-1 bg-brown">
+      <img id="ropeHook0" class="rope--hook" src="images/hook-cut.png">
+    </section>
+
+    <section id="section2" class="page-section section-2 bg-dark">
+      <img id="ropeHook1" class="rope--hook" src="images/hook-cut.png">
     </section>
   </div> <!-- END container -->
   
