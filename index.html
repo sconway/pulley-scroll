@@ -12,33 +12,25 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/state.css" />
   <link rel="stylesheet" href="css/modifiers.css" />
-  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/pulley-scroll.css" />
 </head>
 <body>
 
-  <nav id="sideNav" class="side-nav">
-    <ul>
-      <li id="link1"><a href="#section0">Home</a></li>
-      <li id="link2"><a href="#section1">Work</a></li>
-      <li><a href="#section2">Info</a></li>
-    </ul>
-  </nav>
-
-  <div class="wrapper full-screen">
+  <div class="wrapper">
     <div class="wrapper--rope-cutoff">
+      <!-- <section class="rope-cutoff-wipe-0 rope-cutoff-wipe"></section>
       <section class="rope-cutoff-wipe-1 rope-cutoff-wipe"></section>
-      <section class="rope-cutoff-wipe-2 rope-cutoff-wipe bg-brown"></section>
-      <section class="rope-cutoff-wipe-3 rope-cutoff-wipe bg-dark"></section>
+      <section class="rope-cutoff-wipe-2 rope-cutoff-wipe"></section> -->
     </div>
 
     <div class="wrapper--bottom-cutoff">
+      <!-- <section class="cutoff-wipe-0 cutoff-wipe"></section>
       <section class="cutoff-wipe-1 cutoff-wipe"></section>
-      <section class="cutoff-wipe-2 cutoff-wipe bg-brown"></section>
-      <section class="cutoff-wipe-3 cutoff-wipe bg-dark"></section>
+      <section class="cutoff-wipe-2 cutoff-wipe"></section> -->
     </div>
 
-    <figure class="pulley-wheel wheel-part"></figure>
-    <div class="pulley-wheel--outer wheel-part"></div>
+    <figure id="pulleyWheel" class="spin-part pulley-wheel wheel-part"></figure>
+    <div class=" pulley-wheel--outer wheel-part"></div>
     <div class="pulley-wheel--indentation wheel-part"></div>
     <div class="pulley-wheel--ridge wheel-part"></div>
     <div class="pulley-wheel--bump wheel-part"></div>
@@ -48,19 +40,23 @@
     <figure id="leftRope" class="rope left"></figure>
     <img class="rope--weight" id="ropeWeight" src="images/weight.png" alt="rope weight">
 
-    <section id="section0" class="page-section section-0">
-<!--     	<article class="home-heading">
-    	  <h1>Hi. I'm Scott</h1>
-    	  <h2>I like to build things with code</h2>
-    	</article> -->
+    <section id="section0" class="page-section">
     </section>
 
-    <section id="section1" class="page-section section-1 bg-brown">
-      <img id="ropeHook0" class="rope--hook" src="images/hook-cut.png">
-    </section>
-
-    <section id="section2" class="page-section section-2 bg-dark">
+    <section id="section1" class="page-section">
       <img id="ropeHook1" class="rope--hook" src="images/hook-cut.png">
+    </section>
+
+    <section id="section2" class="page-section">
+      <img id="ropeHook2" class="rope--hook" src="images/hook-cut.png">
+    </section>
+
+    <section id="section3" class="page-section">
+      <img id="ropeHook3" class="rope--hook" src="images/hook-cut.png">
+    </section>
+
+    <section id="section4" class="page-section">
+      <img id="ropeHook4" class="rope--hook" src="images/hook-cut.png">
     </section>
   </div> <!-- END container -->
   
@@ -72,6 +68,6 @@
   <script type="text/javascript" src="js/scrollmagic/minified/ScrollMagic.min.js"></script>
   <script type="text/javascript" src="js/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
   <script type="text/javascript" src="js/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
-  <script type="text/javascript" src="js/profile.js"></script>
+  <script type="text/javascript" src="js/pulley-scroll.js"></script>
 </body>
 </html>

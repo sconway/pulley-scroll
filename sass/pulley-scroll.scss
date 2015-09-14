@@ -1,0 +1,214 @@
+@import "vars";
+@import "mixins";
+
+body {
+  background-color: #DFFDFF;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-kerning: normal;
+
+  @include antialiasing;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.page-section, 
+.cutoff-wipe, 
+.rope-cutoff-wipe {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.home-heading {
+	position: absolute;
+  left: 5%;
+  text-transform: lowercase;
+  top: 75px;
+
+  @media (min-width: $breakpoint-small) {
+    left: 150px;
+  }   
+}
+
+.side-nav {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  @include transform( translateY(-50%) );
+
+  ul {
+
+    li {
+      margin-bottom: 15px;
+      padding-right: $right-offset;
+      position: relative;
+
+      &:before {
+        content: "";
+        width: 13px;
+        height: 1px;
+        right: $right-offset;
+        top: 50%;
+        position: absolute;
+        background-color: #000;
+      }
+
+      &.active {
+        &:before {
+          visibility: hidden;
+        }
+
+        a {
+          opacity: 1;
+        }
+      }
+
+      a {
+        color: #fff;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.pulley-wheel {
+  background: url("../images/rope-bg.jpg");
+  border-radius: 50%;
+  height: 100px;
+  left: 25px;
+  position: fixed;
+  top: 50px;
+  width: 100px;
+  z-index: 2;
+}
+
+.pulley-wheel--outer {
+  @include linear-gradient( to top left, #333 0%, #666 10%, #999, 50%, #AAA 90%, #DDD 100% );
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  position: fixed;
+  left: 30px;
+  top: 55px;
+  z-index: 5;
+}
+
+.pulley-wheel--indentation {
+  @include linear-gradient( to bottom right, #333 0%, #666 10%, #888 20%, #999 33%, #AAA 66%, #DDD 90%, #DDD 100% );
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  left: 40px;
+  top: 65px;
+  z-index: 6;
+}
+
+.pulley-wheel--ridge {
+  @include linear-gradient( to top left, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100% );
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  left: 55px;
+  top: 80px;
+  z-index: 7;
+}
+
+.pulley-wheel--bump {
+  @include linear-gradient( to bottom right, #666 0%, #999 10%, #AAA 33%, #BBB 66%, #CCC 90%, #EEE 100% );
+  border-radius: 50%;
+  height: 34px;
+  width: 34px;
+  position: fixed;
+  left: 58px;
+  top: 83px;
+  z-index: 8;
+}
+
+.pulley-wheel--hole {
+  background-color: #333;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  position: fixed;
+  left: 70px;
+  top: 95px;
+  z-index: 9;
+}
+
+
+.rope {
+  background: url("../images/rope-bg.jpg");
+  background-position: 44%;
+  position: absolute;
+  // height: 400%;
+  left: 115px;
+  top: 0;
+  width: $rope-width;
+  z-index: 1;
+
+  &.left {
+    height: 200% !important;
+    left: 25px;
+    position: fixed;
+    top: -175%;
+  }
+}
+
+.rope--weight {
+  position: fixed;
+  left: 0px;
+  width: 60px;
+  z-index: 3;
+  top: 24%;
+}
+
+.rope--hook {
+  position: absolute;
+  width: 60px;
+  left: 104px;
+  top: -77px;
+  z-index: 3;
+}
+
+.wrapper--rope-cutoff {
+  height: 100px;
+  left: 20px;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  width: 125px;
+  z-index: 2;
+
+  .bg-dark-wood {
+    &.rope-cutoff-wipe {
+      background-position: -20px 0px;
+    }
+
+    &.cutoff-wipe {
+      background-position: -35px -70px;
+    }
+  }
+
+}
+
+
+.wrapper--bottom-cutoff {
+  height: 50px;
+  left: 35px;
+  overflow: hidden;
+  position: fixed;
+  top: 100px;
+  width: 80px;
+  z-index: 3;
+}
+
+
